@@ -1724,8 +1724,7 @@
     }
     .settings-tabs {
       flex: 0 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr) minmax(0, 1.45fr) minmax(0, 0.85fr);
+      display: flex;
       height: 54px !important;
       min-height: 54px !important;
       max-height: 54px !important;
@@ -1736,15 +1735,19 @@
       overflow: hidden;
     }
     .settings-tabs button {
-      width: 100%;
+      flex: 1 1 auto;
+      width: auto;
       height: 42px !important;
-      min-width: 0;
+      min-width: max-content;
       min-height: 42px !important;
       max-height: 42px !important;
-      padding: 9px 6px;
+      padding: 9px 8px;
       border-radius: 10px;
       font-size: 14px;
       line-height: 1.25;
+    }
+    .settings-tabs button[data-settings-tab="preferences"] {
+      padding-inline: 11px;
     }
     .settings-panes {
       flex: 1 1 auto;
@@ -1898,7 +1901,7 @@
       }
       .settings-tabs {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         height: 98px !important;
         min-height: 98px !important;
         max-height: 98px !important;
@@ -1958,7 +1961,7 @@
     @media (max-width: 360px) {
       .settings-tabs {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
       .settings-tabs button {
         width: 100%;
