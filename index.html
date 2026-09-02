@@ -192,6 +192,9 @@
     .system-status[data-state="transcribing"] {
       color: var(--muted);
     }
+    body.chat-empty .system-status {
+      display: none !important;
+    }
     .message-row-inner > .system-status {
       margin-top: 12px;
     }
@@ -3006,13 +3009,14 @@
       };
       document.body.dataset.systemState = state;
       const status = getSystemStatusElement();
-      if (!busy && (state === 'listening' || state === 'transcribing')) {
-        const host = document.querySelector('#welcome .welcome-container') || document.getElementById('messages');
+      const isWelcomeMode = document.body.classList.contains('chat-empty') || Boolean(document.getElementById('welcome'));
+      if (!isWelcomeMode && !busy && (state === 'listening' || state === 'transcribing')) {
+        const host = document.getElementById('messages');
         if (host) host.append(status);
       }
       status.dataset.state = state;
       status.textContent = labels[state] || '';
-      status.hidden = !labels[state];
+      status.hidden = isWelcomeMode || !labels[state];
       if (!status.hidden) scrollToBottom();
     }
 
