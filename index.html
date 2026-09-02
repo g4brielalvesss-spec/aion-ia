@@ -1694,6 +1694,251 @@
 
       .toast { top: 16px; padding: 9px 16px; font-size: 14.3px; }
     }
+
+    /* Sistema unificado de espaçamento e respiro tipográfico */
+    :root {
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --control-height: 42px;
+      --control-pad-x: 14px;
+      --control-pad-y: 10px;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      line-height: 1.4;
+    }
+
+    .modal-header {
+      min-height: var(--control-height);
+      gap: var(--space-4);
+    }
+    .settings-tabs {
+      gap: var(--space-1);
+      padding: 5px;
+      margin: var(--space-4) 0 var(--space-3);
+      border-radius: 14px;
+    }
+    .settings-tabs button {
+      min-height: 40px;
+      padding: 9px var(--space-2);
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+    .settings-panes {
+      padding-top: var(--space-3);
+    }
+    .settings-pane > label {
+      margin-top: var(--space-4);
+      line-height: 1.4;
+    }
+    .settings-card input,
+    .settings-card select,
+    .settings-card textarea {
+      min-height: var(--control-height);
+      margin-top: var(--space-2);
+      padding: var(--control-pad-y) var(--control-pad-x);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .settings-card select {
+      padding-right: 44px;
+    }
+    #modelFilterInput {
+      min-height: var(--control-height);
+      padding: var(--control-pad-y) var(--space-3) !important;
+      font-size: 14px !important;
+      line-height: 1.4 !important;
+    }
+    .models-checklist {
+      padding: var(--space-2) !important;
+      gap: 6px !important;
+    }
+    .model-check-item {
+      min-height: 38px;
+      gap: 9px;
+      padding: var(--space-2) 10px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .new-chat-drawer-btn,
+    .primary-button,
+    .secondary-button,
+    .danger-button {
+      height: auto;
+      min-height: var(--control-height);
+      padding: var(--control-pad-y) var(--space-4);
+      line-height: 1.25;
+    }
+    .danger-ghost-button {
+      min-height: 40px;
+      padding: var(--control-pad-y) var(--space-3);
+      line-height: 1.3;
+    }
+    .history-list,
+    .balance-cards {
+      gap: var(--space-2);
+    }
+    .history-item {
+      gap: var(--space-3);
+      padding: var(--space-3) var(--control-pad-x);
+    }
+    .history-item-title,
+    .history-item-date,
+    .history-empty,
+    .balance-body,
+    .balance-status-row,
+    .balance-item-currency {
+      line-height: 1.4;
+    }
+    .balance-item {
+      padding: var(--space-3) var(--control-pad-x);
+    }
+    .balance-status {
+      padding: 5px 10px;
+      line-height: 1.35;
+    }
+    .setting-row {
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+      padding: var(--space-2) 0;
+    }
+    .setting-row strong,
+    .setting-row small {
+      line-height: 1.4;
+    }
+    .modal-actions {
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: var(--space-4);
+    }
+
+    .message-row {
+      gap: var(--space-2);
+    }
+    .message-row.user .message-bubble {
+      padding: 13px 18px;
+      line-height: 1.65;
+    }
+    .message-bubble p {
+      margin-bottom: var(--space-3);
+    }
+    .message-bubble pre {
+      padding: var(--space-4);
+      line-height: 1.55;
+    }
+    .message-bubble code {
+      padding: 3px 7px;
+      line-height: 1.45;
+    }
+    .message-bubble pre code {
+      padding: 0;
+    }
+    .message-bubble th,
+    .message-bubble td {
+      padding: 10px var(--space-3);
+      line-height: 1.45;
+    }
+    .attachment-chip,
+    .attach-inline,
+    .search-source-pill,
+    .source-link {
+      line-height: 1.35;
+    }
+    .toast {
+      line-height: 1.4;
+    }
+
+    @media (min-width: 769px) {
+      .settings-drawer {
+        width: 420px;
+      }
+      .settings-card {
+        padding: var(--space-5);
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --control-height: 44px;
+        --control-pad-y: 11px;
+        --control-pad-x: 13px;
+      }
+      .settings-drawer {
+        width: min(360px, calc(100vw - 16px));
+      }
+      .settings-card {
+        padding: 18px var(--space-4);
+      }
+      .settings-tabs {
+        margin: var(--space-4) 0 var(--space-3);
+        gap: var(--space-1);
+        padding: var(--space-1);
+      }
+      .settings-tabs button {
+        min-height: 40px;
+        padding: 9px var(--space-1);
+        font-size: clamp(12.8px, 3.6vw, 13.5px);
+        line-height: 1.25;
+      }
+      .settings-card input,
+      .settings-card select,
+      .settings-card textarea {
+        min-height: var(--control-height);
+        padding: var(--control-pad-y) var(--control-pad-x);
+        line-height: 1.45;
+      }
+      .model-check-item {
+        min-height: 40px;
+        padding: 9px 10px;
+      }
+      .setting-row {
+        gap: var(--space-3);
+        margin-top: var(--space-4);
+        padding: var(--space-1) 0;
+      }
+      .setting-row > div:last-child {
+        gap: var(--space-2);
+      }
+      .setting-row .secondary-button,
+      .setting-row .danger-button,
+      .setting-row #resetSettings,
+      .modal-actions button {
+        min-height: var(--control-height);
+        padding: var(--control-pad-y) var(--space-3);
+        line-height: 1.3;
+      }
+      .message-row.user .message-bubble {
+        padding: var(--space-3) var(--space-4);
+      }
+      .message-bubble pre {
+        padding: 14px;
+      }
+      .message-bubble th,
+      .message-bubble td {
+        padding: 9px 10px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .settings-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .settings-tabs button {
+        width: 100%;
+        min-width: 0;
+        font-size: 13.5px;
+        padding: 9px var(--space-2);
+      }
+    }
   </style>
 </head>
 <body class="chat-empty">
