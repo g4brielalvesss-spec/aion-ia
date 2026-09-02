@@ -1244,7 +1244,7 @@
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23bdbdbd' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 18px center;
       background-size: 14px;
@@ -1975,6 +1975,316 @@
         min-width: 0;
         font-size: 12px;
         padding: 9px 2px;
+      }
+    }
+
+    /* Tipografia e contraste refinados */
+    :root {
+      --text: #f8f8f8;
+      --text-soft: #eeeeee;
+      --muted: #b7b7b7;
+      --faint: #929292;
+    }
+
+    html,
+    body {
+      font-size: 19px;
+    }
+
+    .message-bubble {
+      font-size: 19px;
+      color: var(--text-soft);
+    }
+
+    .settings-card {
+      color: var(--text-soft);
+    }
+
+    .settings-pane > label,
+    .setting-row strong,
+    .models-section-header > span {
+      color: var(--text);
+      font-size: 16.5px;
+    }
+
+    .settings-card input,
+    .settings-card select,
+    .settings-card textarea {
+      font-size: 16.5px;
+    }
+
+    .setting-row small,
+    .balance-placeholder,
+    .balance-loading,
+    .balance-error {
+      font-size: 14.7px;
+      color: var(--muted);
+    }
+
+    .settings-tabs button {
+      font-size: 14.5px;
+    }
+
+    .system-status {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .composer {
+      min-height: 54px;
+      padding: 6px 11px;
+    }
+
+    .composer textarea {
+      min-height: 38px;
+      padding: 7px 7px;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      html,
+      body {
+        font-size: 16.5px;
+      }
+
+      .message-bubble {
+        font-size: 16.8px;
+      }
+
+      .settings-pane > label,
+      .setting-row strong,
+      .models-section-header > span {
+        font-size: 15.3px;
+      }
+
+      .settings-card input,
+      .settings-card select,
+      .settings-card textarea {
+        font-size: 15.5px;
+      }
+
+      .setting-row small {
+        font-size: 13.8px;
+      }
+
+      .settings-tabs button {
+        font-size: 12.8px;
+      }
+
+      .system-status {
+        font-size: 14.5px;
+      }
+
+      .composer {
+        min-height: 50px;
+        padding: 6px 10px;
+      }
+
+      .composer textarea {
+        min-height: 35px;
+        padding: 6px 5px;
+        font-size: 16.5px;
+        line-height: 1.5;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .settings-tabs button {
+        font-size: 12.2px;
+      }
+    }
+
+    /* Sistema tipográfico funcional unificado */
+    :root {
+      --type-chat: 18.5px;
+      --type-functional: 16px;
+      --type-control: 14.8px;
+      --type-support: 13.8px;
+      --type-tabs: 14px;
+      --menu-primary: #f8f8f8;
+      --menu-secondary: #e8e8e8;
+      --menu-muted: #bdbdbd;
+    }
+
+    .message-bubble,
+    .composer textarea {
+      color: var(--text) !important;
+      font-size: var(--type-chat) !important;
+      font-weight: 400;
+      line-height: 1.65;
+    }
+
+    .settings-card input,
+    .settings-card select,
+    .settings-card textarea {
+      color: var(--menu-primary) !important;
+      font-size: var(--type-functional) !important;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .composer textarea::placeholder,
+    .settings-card input::placeholder,
+    .settings-card textarea::placeholder {
+      color: var(--menu-muted);
+      opacity: 1;
+    }
+
+    .settings-tabs button,
+    .new-chat-drawer-btn,
+    .primary-button,
+    .secondary-button,
+    .danger-button,
+    .danger-ghost-button,
+    .model-check-item,
+    .model-popover-item,
+    .history-item-title,
+    .history-empty,
+    .balance-body,
+    .balance-item-currency {
+      font-size: var(--type-control) !important;
+      color: var(--menu-secondary);
+      line-height: 1.4;
+    }
+
+    .settings-tabs button {
+      font-size: var(--type-tabs) !important;
+      font-weight: 600;
+      color: var(--menu-secondary);
+    }
+
+    .settings-pane > label,
+    .setting-row strong,
+    .models-section-header > span {
+      color: var(--menu-primary) !important;
+      font-size: var(--type-functional) !important;
+      font-weight: 600 !important;
+      line-height: 1.4;
+    }
+
+    .setting-row small,
+    .history-item-date,
+    .history-empty,
+    .balance-placeholder,
+    .balance-loading,
+    .balance-error,
+    .balance-status-row,
+    .balance-status,
+    .history-empty small,
+    .model-popover-list > div,
+    #modelFilterInput {
+      font-size: var(--type-support) !important;
+      color: var(--menu-muted);
+      line-height: 1.45;
+    }
+
+    .history-item-title,
+    .new-chat-drawer-btn,
+    .model-check-item,
+    .secondary-button {
+      color: var(--menu-primary);
+    }
+
+    .openai-panel-link,
+    .balance-item a {
+      color: var(--accent) !important;
+      font-size: var(--type-support) !important;
+    }
+
+    .settings-card .primary-button {
+      color: #101817 !important;
+    }
+
+    .settings-tabs {
+      height: 50px !important;
+      min-height: 50px !important;
+      max-height: 50px !important;
+      padding: 5px;
+    }
+
+    .settings-tabs button {
+      height: 38px !important;
+      min-height: 38px !important;
+      max-height: 38px !important;
+      padding-block: 7px;
+    }
+
+    .new-chat-drawer-btn,
+    .primary-button,
+    .secondary-button,
+    .danger-button,
+    .danger-ghost-button {
+      min-height: 38px;
+      padding: 8px 12px;
+    }
+
+    .history-item {
+      padding: 9px 11px;
+      gap: 10px;
+    }
+
+    .model-check-item {
+      min-height: 36px;
+      padding: 7px 9px;
+    }
+
+    .settings-card input,
+    .settings-card select,
+    .settings-card textarea {
+      min-height: 40px;
+      padding: 9px 12px;
+    }
+
+    .model-popover {
+      width: 248px;
+      max-width: calc(100vw - 32px);
+    }
+
+    .model-popover-item {
+      padding: 8px 11px;
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --type-chat: 16.4px;
+        --type-functional: 15.2px;
+        --type-control: 14.5px;
+        --type-support: 13.5px;
+        --type-tabs: 12.5px;
+      }
+
+      .settings-tabs {
+        height: 50px !important;
+        min-height: 50px !important;
+        max-height: 50px !important;
+      }
+
+      .settings-tabs button {
+        height: 38px !important;
+        min-height: 38px !important;
+        max-height: 38px !important;
+      }
+
+      .new-chat-drawer-btn,
+      .primary-button,
+      .secondary-button,
+      .danger-button,
+      .danger-ghost-button {
+        min-height: 40px;
+      }
+
+      .settings-card input,
+      .settings-card select,
+      .settings-card textarea {
+        min-height: 42px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --type-tabs: 12px;
       }
     }
   </style>
@@ -4575,12 +4885,12 @@ Regras:
           const currency = escapeHtml(info.currency || 'USD');
           const symbol = currency === 'USD' ? String.fromCharCode(36) : (currency === 'CNY' ? '¥' : '');
           const total = parseFloat(info.total_balance || 0).toFixed(2);
-          htmlStr += '<div class="balance-item"><div class="balance-item-top"><span class="balance-item-currency">Saldo e limites</span><a href="https://platform.deepseek.com/top_up" target="_blank" rel="noopener noreferrer" style="color:var(--text-accent, #60a5fa); text-decoration:none; font-size:14.3px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">' + symbol + total + '</a></div></div>';
+          htmlStr += '<div class="balance-item"><div class="balance-item-top"><span class="balance-item-currency">Saldo e limites</span><a href="https://platform.deepseek.com/top_up" target="_blank" rel="noopener noreferrer" style="color:var(--accent, #55b8b0); text-decoration:none; font-size:14.3px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">' + symbol + total + '</a></div></div>';
         });
         htmlStr += '</div>';
         container.innerHTML = htmlStr;
       } else {
-        container.innerHTML = '<div class="balance-status-row"><span>Status da conexão:</span><span class="balance-status active">Conectado</span></div><div class="balance-cards"><div class="balance-item"><div class="balance-item-top"><span class="balance-item-currency">Saldo e limites</span><a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener noreferrer" style="color:var(--text-accent, #60a5fa); text-decoration:none; font-size:14.3px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">Painel oficial</a></div></div></div>';
+        container.innerHTML = '<div class="balance-status-row"><span>Status da conexão:</span><span class="balance-status active">Conectado</span></div><div class="balance-cards"><div class="balance-item"><div class="balance-item-top"><span class="balance-item-currency">Saldo e limites</span><a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener noreferrer" style="color:var(--accent, #55b8b0); text-decoration:none; font-size:14.3px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">Painel oficial</a></div></div></div>';
       }
     }
 
@@ -4748,7 +5058,7 @@ Regras:
       const active = getActiveModel(settings);
 
       if (!enabled.length) {
-        popoverList.innerHTML = `<div style="padding: 16px 12px; font-size: 13px; color: var(--muted, #a0a0a0); text-align: center; line-height: 1.5;">
+        popoverList.innerHTML = `<div style="padding: 16px 12px; font-size: 13px; color: var(--menu-muted, #bdbdbd); text-align: center; line-height: 1.5;">
           <span>Nenhum modelo habilitado.</span><br>
           <button type="button" id="popoverGoSettingsBtn" style="background: transparent; border: none; color: var(--accent, #55b8b0); font-size: 13px; font-weight: 500; text-decoration: underline; cursor: pointer; margin-top: 8px; font-family: inherit;">
             Habilitar nas Configurações
