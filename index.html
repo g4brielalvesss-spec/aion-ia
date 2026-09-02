@@ -1901,13 +1901,19 @@
       }
       .settings-tabs {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        height: 98px !important;
-        min-height: 98px !important;
-        max-height: 98px !important;
+        grid-template-columns: minmax(0, .95fr) minmax(0, 1.18fr) minmax(0, .86fr) minmax(0, .78fr) !important;
+        height: 54px !important;
+        min-height: 54px !important;
+        max-height: 54px !important;
         margin: var(--space-4) 0 var(--space-3);
         gap: var(--space-1);
         padding: var(--space-1);
+      }
+      .settings-tabs:has([data-settings-tab="general"][data-tab-label="models"]) {
+        grid-template-columns: minmax(0, .95fr) minmax(0, 1.2fr) minmax(0, .94fr) minmax(0, .78fr) !important;
+      }
+      .settings-tabs:has([data-settings-tab="general"][data-tab-label="apis-models"]) {
+        grid-template-columns: minmax(0, .88fr) minmax(0, 1.08fr) minmax(0, 1.27fr) minmax(0, .72fr) !important;
       }
       .settings-tabs button {
         width: 100%;
@@ -1915,9 +1921,10 @@
         height: 42px !important;
         min-height: 42px !important;
         max-height: 42px !important;
-        padding: 9px var(--space-2);
-        font-size: 14px;
+        padding: 9px 3px;
+        font-size: 12.5px;
         line-height: 1.25;
+        white-space: nowrap;
       }
       .settings-card input,
       .settings-card select,
@@ -1960,14 +1967,14 @@
 
     @media (max-width: 360px) {
       .settings-tabs {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 2px;
+        padding-inline: 3px;
       }
       .settings-tabs button {
         width: 100%;
         min-width: 0;
-        font-size: 13.5px;
-        padding: 9px var(--space-2);
+        font-size: 12px;
+        padding: 9px 2px;
       }
     }
   </style>
@@ -4859,10 +4866,13 @@ Regras:
       if (apiTabBtn) {
         if (hasOpenAI && hasGroq && hasTavily) {
           apiTabBtn.textContent = 'Modelos';
+          apiTabBtn.dataset.tabLabel = 'models';
         } else if (hasOpenAI) {
           apiTabBtn.textContent = 'APIs/Modelos';
+          apiTabBtn.dataset.tabLabel = 'apis-models';
         } else {
           apiTabBtn.textContent = 'APIs';
+          apiTabBtn.dataset.tabLabel = 'apis';
         }
       }
       if (dashLink) {
