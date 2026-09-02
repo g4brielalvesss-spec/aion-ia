@@ -266,20 +266,17 @@
       display: none;
     }
 
-    /* Estado padrão (idle/conectado): leve balanço (vai-e-volta) do anel inteiro + respiração mais evidente de cada segmento */
+    /* O Ciclo respira como um organismo: o anel inteiro expande e contrai (escala), com uma curva
+       assimétrica — cresce mais devagar, contrai mais rápido, como uma inspiração/expiração real.
+       Cada estado usa o MESMO mecanismo, só muda o ritmo e a intensidade — isso é o que garante que
+       os 3 estados pareçam parte do mesmo "ser", em vez de efeitos desconexos entre si. */
     .centelha .centelha-ring,
     .chat-orb .centelha-ring {
       transform-origin: 120px 120px;
-      animation: centelha-idle-rock 6s cubic-bezier(.45, 0, .55, 1) infinite;
-      --centelha-duracao: 2.6s;
-      --centelha-deslocamento: -0.9s;
-      --centelha-amp: 1;
+      animation: centelha-respirar 3.2s cubic-bezier(.33, 0, .2, 1) infinite;
     }
 
-    /* Estado: Pensando / Buscando / Respondendo — SEM rotação. Cada um dos 8 segmentos "acende",
-       cresce e brilha mais forte em sequência ao redor do anel, como um processamento percorrendo
-       o círculo. Isso é bem mais legível como "trabalhando" do que um giro genérico, e fica
-       claramente diferente do balanço do idle e do pulso central do listening. */
+    /* Pensando/buscando/respondendo: respiração mais rápida e mais funda — como alguém concentrado */
     .centelha.thinking .centelha-ring,
     .centelha.searching .centelha-ring,
     .centelha.responding .centelha-ring,
@@ -287,131 +284,36 @@
     .chat-orb.searching .centelha-ring,
     .chat-orb.responding .centelha-ring {
       color: var(--accent, #9de67a);
-      animation: none;
-    }
-    .centelha.thinking .centelha-segmento, .centelha.searching .centelha-segmento, .centelha.responding .centelha-segmento,
-    .chat-orb.thinking .centelha-segmento, .chat-orb.searching .centelha-segmento, .chat-orb.responding .centelha-segmento {
-      animation: centelha-wave 1.6s ease-in-out infinite;
-      transform-origin: center;
-      opacity: 0.45;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(1), .centelha.searching .centelha-segmento:nth-child(1), .centelha.responding .centelha-segmento:nth-child(1),
-    .chat-orb.thinking .centelha-segmento:nth-child(1), .chat-orb.searching .centelha-segmento:nth-child(1), .chat-orb.responding .centelha-segmento:nth-child(1) {
-      animation-delay: 0ms;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(2), .centelha.searching .centelha-segmento:nth-child(2), .centelha.responding .centelha-segmento:nth-child(2),
-    .chat-orb.thinking .centelha-segmento:nth-child(2), .chat-orb.searching .centelha-segmento:nth-child(2), .chat-orb.responding .centelha-segmento:nth-child(2) {
-      animation-delay: 100ms;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(3), .centelha.searching .centelha-segmento:nth-child(3), .centelha.responding .centelha-segmento:nth-child(3),
-    .chat-orb.thinking .centelha-segmento:nth-child(3), .chat-orb.searching .centelha-segmento:nth-child(3), .chat-orb.responding .centelha-segmento:nth-child(3) {
-      animation-delay: 200ms;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(4), .centelha.searching .centelha-segmento:nth-child(4), .centelha.responding .centelha-segmento:nth-child(4),
-    .chat-orb.thinking .centelha-segmento:nth-child(4), .chat-orb.searching .centelha-segmento:nth-child(4), .chat-orb.responding .centelha-segmento:nth-child(4) {
-      animation-delay: 300ms;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(5), .centelha.searching .centelha-segmento:nth-child(5), .centelha.responding .centelha-segmento:nth-child(5),
-    .chat-orb.thinking .centelha-segmento:nth-child(5), .chat-orb.searching .centelha-segmento:nth-child(5), .chat-orb.responding .centelha-segmento:nth-child(5) {
-      animation-delay: 400ms;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(6), .centelha.searching .centelha-segmento:nth-child(6), .centelha.responding .centelha-segmento:nth-child(6),
-    .chat-orb.thinking .centelha-segmento:nth-child(6), .chat-orb.searching .centelha-segmento:nth-child(6), .chat-orb.responding .centelha-segmento:nth-child(6) {
-      animation-delay: 500ms;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(7), .centelha.searching .centelha-segmento:nth-child(7), .centelha.responding .centelha-segmento:nth-child(7),
-    .chat-orb.thinking .centelha-segmento:nth-child(7), .chat-orb.searching .centelha-segmento:nth-child(7), .chat-orb.responding .centelha-segmento:nth-child(7) {
-      animation-delay: 600ms;
-    }
-    .centelha.thinking .centelha-segmento:nth-child(8), .centelha.searching .centelha-segmento:nth-child(8), .centelha.responding .centelha-segmento:nth-child(8),
-    .chat-orb.thinking .centelha-segmento:nth-child(8), .chat-orb.searching .centelha-segmento:nth-child(8), .chat-orb.responding .centelha-segmento:nth-child(8) {
-      animation-delay: 700ms;
+      animation-name: centelha-respirar-fundo;
+      animation-duration: 1.35s;
     }
 
-    /* Respiração sutil: cada segmento pulsa (translate + leve escala) em sua própria fase, duração e
-       amplitude, por cima do giro do grupo. Pequenas variações entre os 8 segmentos (em vez de todos
-       usarem exatamente o mesmo timer) é o que dá a sensação de organismo, não de mecanismo. */
-    .centelha .centelha-segmento,
-    .chat-orb .centelha-segmento {
-      animation: centelha-breathe var(--centelha-seg-duracao, var(--centelha-duracao, 4s)) cubic-bezier(.37, 0, .63, 1) infinite;
-      animation-delay: calc(var(--centelha-fase, 0s) + var(--centelha-deslocamento, 0s));
-      transform-origin: center;
-    }
-    .centelha .centelha-segmento:nth-child(1), .chat-orb .centelha-segmento:nth-child(1) {
-      --x-sutil: -17.39px; --y-sutil: -10.37px; --centelha-fase: 0s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 1.00);
-    }
-    .centelha .centelha-segmento:nth-child(2), .chat-orb .centelha-segmento:nth-child(2) {
-      --x-sutil: -5.36px; --y-sutil: -20.52px; --centelha-fase: -0.37s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 1.06);
-    }
-    .centelha .centelha-segmento:nth-child(3), .chat-orb .centelha-segmento:nth-child(3) {
-      --x-sutil: 9.72px; --y-sutil: -16.38px; --centelha-fase: -0.62s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 0.95);
-    }
-    .centelha .centelha-segmento:nth-child(4), .chat-orb .centelha-segmento:nth-child(4) {
-      --x-sutil: 20.52px; --y-sutil: -5.36px; --centelha-fase: -1.08s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 1.03);
-    }
-    .centelha .centelha-segmento:nth-child(5), .chat-orb .centelha-segmento:nth-child(5) {
-      --x-sutil: 16.38px; --y-sutil: 9.72px; --centelha-fase: -1.29s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 0.97);
-    }
-    .centelha .centelha-segmento:nth-child(6), .chat-orb .centelha-segmento:nth-child(6) {
-      --x-sutil: 5.36px; --y-sutil: 20.52px; --centelha-fase: -1.75s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 1.08);
-    }
-    .centelha .centelha-segmento:nth-child(7), .chat-orb .centelha-segmento:nth-child(7) {
-      --x-sutil: -9.72px; --y-sutil: 16.38px; --centelha-fase: -2.11s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 0.93);
-    }
-    .centelha .centelha-segmento:nth-child(8), .chat-orb .centelha-segmento:nth-child(8) {
-      --x-sutil: -20.52px; --y-sutil: 5.36px; --centelha-fase: -2.46s; --centelha-seg-duracao: calc(var(--centelha-duracao, 4s) * 1.02);
-    }
-
-    /* Estado: Ouvindo / Transcrevendo (segmentos vão em direção ao centro, com respiro entre eles, e crescem — pulsação bem mais evidente) */
+    /* Escutando: respiração mais rápida ainda e mais estreita — como estar em alerta, atento */
     .centelha.listening .centelha-ring,
     .centelha.transcribing .centelha-ring,
     .chat-orb.listening .centelha-ring,
     .chat-orb.transcribing .centelha-ring {
       color: var(--accent, #9de67a);
-      animation: none;
+      animation-name: centelha-respirar-alerta;
+      animation-duration: 0.85s;
     }
-    .centelha.listening .centelha-segmento,
-    .centelha.transcribing .centelha-segmento,
-    .chat-orb.listening .centelha-segmento,
-    .chat-orb.transcribing .centelha-segmento {
-      animation-name: centelha-listening;
-      animation-duration: var(--centelha-listen-duracao, 2.05s);
-      animation-timing-function: cubic-bezier(.45, 0, .35, 1);
-      animation-iteration-count: infinite;
+
+    /* Cada segmento gira minimamente e de forma independente sobre seu próprio eixo, com uma fase
+       levemente diferente — um tremor quase imperceptível de vida, presente em todos os estados,
+       que evita que o anel pareça um SVG estático simplesmente crescendo e encolhendo. */
+    .centelha .centelha-segmento,
+    .chat-orb .centelha-segmento {
       transform-origin: center;
+      animation: centelha-vibrar 2.4s ease-in-out infinite;
     }
-    .centelha.listening .centelha-segmento:nth-child(1), .centelha.transcribing .centelha-segmento:nth-child(1),
-    .chat-orb.listening .centelha-segmento:nth-child(1), .chat-orb.transcribing .centelha-segmento:nth-child(1) {
-      --x-centro: -12.18px; --y-centro: -7.26px; animation-delay: 0ms; --centelha-listen-duracao: 1.55s;
-    }
-    .centelha.listening .centelha-segmento:nth-child(2), .centelha.transcribing .centelha-segmento:nth-child(2),
-    .chat-orb.listening .centelha-segmento:nth-child(2), .chat-orb.transcribing .centelha-segmento:nth-child(2) {
-      --x-centro: -3.27px; --y-centro: -14.42px; animation-delay: 48ms; --centelha-listen-duracao: 1.62s;
-    }
-    .centelha.listening .centelha-segmento:nth-child(3), .centelha.transcribing .centelha-segmento:nth-child(3),
-    .chat-orb.listening .centelha-segmento:nth-child(3), .chat-orb.transcribing .centelha-segmento:nth-child(3) {
-      --x-centro: 7.63px; --y-centro: -11.61px; animation-delay: 88ms; --centelha-listen-duracao: 1.48s;
-    }
-    .centelha.listening .centelha-segmento:nth-child(4), .centelha.transcribing .centelha-segmento:nth-child(4),
-    .chat-orb.listening .centelha-segmento:nth-child(4), .chat-orb.transcribing .centelha-segmento:nth-child(4) {
-      --x-centro: 14.42px; --y-centro: -3.27px; animation-delay: 141ms; --centelha-listen-duracao: 1.58s;
-    }
-    .centelha.listening .centelha-segmento:nth-child(5), .centelha.transcribing .centelha-segmento:nth-child(5),
-    .chat-orb.listening .centelha-segmento:nth-child(5), .chat-orb.transcribing .centelha-segmento:nth-child(5) {
-      --x-centro: 11.61px; --y-centro: 7.63px; animation-delay: 176ms; --centelha-listen-duracao: 1.50s;
-    }
-    .centelha.listening .centelha-segmento:nth-child(6), .centelha.transcribing .centelha-segmento:nth-child(6),
-    .chat-orb.listening .centelha-segmento:nth-child(6), .chat-orb.transcribing .centelha-segmento:nth-child(6) {
-      --x-centro: 3.27px; --y-centro: 14.42px; animation-delay: 231ms; --centelha-listen-duracao: 1.59s;
-    }
-    .centelha.listening .centelha-segmento:nth-child(7), .centelha.transcribing .centelha-segmento:nth-child(7),
-    .chat-orb.listening .centelha-segmento:nth-child(7), .chat-orb.transcribing .centelha-segmento:nth-child(7) {
-      --x-centro: -7.63px; --y-centro: 11.61px; animation-delay: 264ms; --centelha-listen-duracao: 1.52s;
-    }
-    .centelha.listening .centelha-segmento:nth-child(8), .centelha.transcribing .centelha-segmento:nth-child(8),
-    .chat-orb.listening .centelha-segmento:nth-child(8), .chat-orb.transcribing .centelha-segmento:nth-child(8) {
-      --x-centro: -14.42px; --y-centro: 3.27px; animation-delay: 318ms; --centelha-listen-duracao: 1.56s;
-    }
+    .centelha .centelha-segmento:nth-child(1), .chat-orb .centelha-segmento:nth-child(1) { animation-delay: 0s; }
+    .centelha .centelha-segmento:nth-child(2), .chat-orb .centelha-segmento:nth-child(2) { animation-delay: -0.3s; }
+    .centelha .centelha-segmento:nth-child(3), .chat-orb .centelha-segmento:nth-child(3) { animation-delay: -0.6s; }
+    .centelha .centelha-segmento:nth-child(4), .chat-orb .centelha-segmento:nth-child(4) { animation-delay: -0.9s; }
+    .centelha .centelha-segmento:nth-child(5), .chat-orb .centelha-segmento:nth-child(5) { animation-delay: -1.2s; }
+    .centelha .centelha-segmento:nth-child(6), .chat-orb .centelha-segmento:nth-child(6) { animation-delay: -1.5s; }
+    .centelha .centelha-segmento:nth-child(7), .chat-orb .centelha-segmento:nth-child(7) { animation-delay: -1.8s; }
+    .centelha .centelha-segmento:nth-child(8), .chat-orb .centelha-segmento:nth-child(8) { animation-delay: -2.1s; }
 
     /* Estado: Desconectado (estático, mesma cor do destaque "chave de IA." na tela de boas-vindas) */
     .centelha.disconnected .centelha-core,
@@ -448,30 +350,36 @@
       animation: centelha-nudge-shake 0.34s cubic-bezier(.36,.07,.19,.97) both !important;
     }
 
-    /* Keyframes Centelha: leve balanço (vai e volta) do anel inteiro no estado padrão/conectado — substitui o giro contínuo */
-    @keyframes centelha-idle-rock {
-      0%, 100% { transform: rotate(-8deg); }
-      50% { transform: rotate(8deg); }
+    /* Keyframes Centelha: respiração do estado padrão — cresce devagar (inspira) e volta rápido
+       (expira), como um organismo em repouso. A curva assimétrica (mais tempo crescendo que
+       encolhendo) é o que faz parecer respiração de verdade, e não um "ping-pong" mecânico. */
+    @keyframes centelha-respirar {
+      0% { transform: scale(1); }
+      65% { transform: scale(1.14); }
+      100% { transform: scale(1); }
     }
 
-    /* Keyframes Centelha: onda sequencial no estado pensando/buscando/respondendo — cada segmento
-       "acende" (cresce e fica opaco) em sequência, sem nenhuma rotação. */
-    @keyframes centelha-wave {
-      0%, 100% { transform: scale(1); opacity: 0.45; }
-      35% { transform: scale(1.35); opacity: 1; }
-      70% { transform: scale(1); opacity: 0.45; }
+    /* Keyframes Centelha: respiração funda do estado pensando/buscando/respondendo — mesma curva,
+       mais rápida e com amplitude maior (alguém "puxando fôlego" com mais força e frequência). */
+    @keyframes centelha-respirar-fundo {
+      0% { transform: scale(1); }
+      60% { transform: scale(1.22); }
+      100% { transform: scale(1); }
     }
 
-    /* Keyframes Centelha: respiração de cada segmento (translate + escala), bem mais evidente, na própria fase */
-    @keyframes centelha-breathe {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(var(--x-sutil), var(--y-sutil)) scale(1.08); }
+    /* Keyframes Centelha: respiração de alerta do estado escutando — curta, rápida e mais contida,
+       como alguém prestando atenção com o fôlego mais preso. */
+    @keyframes centelha-respirar-alerta {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
-    /* Keyframes Centelha: cada segmento "bate" forte em direção ao centro e volta, em cascata, na escuta */
-    @keyframes centelha-listening {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      45%, 55% { transform: translate(var(--x-centro), var(--y-centro)) scale(1.28); }
+    /* Keyframes Centelha: tremor mínimo e independente de cada segmento sobre seu próprio eixo —
+       presente em todos os estados, dá a sensação de que o anel nunca fica realmente "parado". */
+    @keyframes centelha-vibrar {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(2.4deg); }
     }
 
     @keyframes centelha-descend-in {
