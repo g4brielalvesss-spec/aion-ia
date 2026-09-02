@@ -2970,6 +2970,123 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  }
 }
 
+
+/* =========================================================
+   ESTADO ATIVO UNIFICADO DOS ÍCONES DA BARRA INFERIOR
+   ========================================================= */
+
+/* Mesma transição para anexo, modelo e microfone */
+#attachButton,
+#modelPillBtn,
+#micButton {
+ border: 1px solid transparent !important;
+ transition:
+  background-color 0.18s ease,
+  border-color 0.18s ease,
+  color 0.18s ease,
+  opacity 0.18s ease !important;
+}
+
+/* Mesmo visual aceso para os três controles */
+#attachButton.active,
+#modelPillBtn.active,
+#micButton.active,
+#micButton.listening {
+ background: rgba(85, 184, 176, 0.18) !important;
+ border-color: rgba(85, 184, 176, 0.35) !important;
+ color: var(--accent, #55b8b0) !important;
+ box-shadow: none !important;
+ opacity: 1 !important;
+}
+
+/* Remove o pulso diferente que existia no microfone */
+#micButton.listening {
+ animation: none !important;
+ transform: none !important;
+}
+
+/* Cor do SVG de modelo e microfone no estado ativo */
+#modelPillBtn.active svg,
+#micButton.active svg,
+#micButton.listening svg {
+ color: var(--accent, #55b8b0) !important;
+ stroke: currentColor !important;
+}
+
+/* Mantém o + desenhado em CSS com a mesma cor ativa */
+#attachButton.active::before,
+#attachButton.active::after {
+ background: var(--accent, #55b8b0) !important;
+}
+
+/* Feedback breve e igual enquanto qualquer botão é pressionado */
+#attachButton:active,
+#modelPillBtn:active,
+#micButton:active {
+ background: rgba(85, 184, 176, 0.18) !important;
+ border-color: rgba(85, 184, 176, 0.35) !important;
+ color: var(--accent, #55b8b0) !important;
+ box-shadow: none !important;
+ transform: none !important;
+}
+
+/* O sinal de + também acende durante o toque */
+#attachButton:active::before,
+#attachButton:active::after {
+ background: var(--accent, #55b8b0) !important;
+}
+
+/* Evita que regras antigas criem estilos diferentes */
+.composer-action.listening,
+.composer-action.active,
+.model-pill-btn.active,
+.attach-button.active {
+ background: rgba(85, 184, 176, 0.18) !important;
+ border: 1px solid rgba(85, 184, 176, 0.35) !important;
+ color: var(--accent, #55b8b0) !important;
+ box-shadow: none !important;
+}
+
+/* Mantém o estado visual consistente no mobile */
+@media (max-width: 768px) {
+ #attachButton.active,
+ #modelPillBtn.active,
+ #micButton.active,
+ #micButton.listening,
+ #attachButton:active,
+ #modelPillBtn:active,
+ #micButton:active {
+  background: rgba(85, 184, 176, 0.18) !important;
+  border-color: rgba(85, 184, 176, 0.35) !important;
+  color: var(--accent, #55b8b0) !important;
+  box-shadow: none !important;
+ }
+}
+
+
+/* Redução adicional do sinal de anexo */
+#attachButton::before {
+ width: 11px !important;
+ height: 1.4px !important;
+}
+
+#attachButton::after {
+ width: 1.4px !important;
+ height: 11px !important;
+}
+
+@media (max-width: 768px) {
+ #attachButton::before {
+  width: 11px !important;
+  height: 1.4px !important;
+ }
+
+ #attachButton::after {
+  width: 1.4px !important;
+  height: 11px !important;
+ }
+}
+
 </style>
 </head>
 <body class="chat-empty">
@@ -4502,7 +4619,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
     function renderAttachmentPreview() {
       const box = $('#attachments');
-      const attachBtn = $('#attachBtn');
+      const attachBtn = $('#attachButton');
       if (attachBtn) {
         if (attachments && attachments.length > 0) {
           attachBtn.classList.add('active');
