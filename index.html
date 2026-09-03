@@ -3087,6 +3087,166 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  }
 }
 
+
+/* =========================================================
+   ALINHAMENTO ENTRE CONVERSA E BARRA INFERIOR
+   ========================================================= */
+
+:root {
+ --chat-side-padding: 20px;
+}
+
+/* Mesma margem externa para mensagens, compositor e anexos */
+.messages-scroll-wrap {
+ padding-left: var(--chat-side-padding) !important;
+ padding-right: var(--chat-side-padding) !important;
+}
+
+.composer-wrap {
+ padding-left: var(--chat-side-padding) !important;
+ padding-right: var(--chat-side-padding) !important;
+}
+
+/* Todos compartilham exatamente a mesma largura central */
+.messages,
+.composer,
+.attachments {
+ width: 100% !important;
+ max-width: var(--chat-width) !important;
+ margin-left: auto !important;
+ margin-right: auto !important;
+ box-sizing: border-box !important;
+}
+
+/* Texto da IA começa na mesma linha da borda esquerda do compositor */
+.message-row.assistant .message-bubble {
+ padding-left: 0 !important;
+ padding-right: 0 !important;
+}
+
+/* Balão do usuário termina na mesma linha da borda direita */
+.message-row.user,
+.message-row.user .message-content {
+ margin-right: 0 !important;
+}
+
+.message-row.user .message-content {
+ align-self: flex-end !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+ :root {
+  --chat-side-padding: 12px;
+ }
+
+ .messages-scroll-wrap,
+ body.chat-empty .messages-scroll-wrap {
+  padding-left: var(--chat-side-padding) !important;
+  padding-right: var(--chat-side-padding) !important;
+ }
+
+ .composer-wrap,
+ body.chat-empty .composer-wrap {
+  padding-left: var(--chat-side-padding) !important;
+  padding-right: var(--chat-side-padding) !important;
+ }
+
+ .message-row.assistant .message-bubble {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+ }
+
+ .message-row.user .message-content {
+  margin-right: 0 !important;
+ }
+}
+
+
+/* =========================================================
+   BARRA INFERIOR LEVEMENTE MAIS LARGA
+   ========================================================= */
+
+/*
+ A conversa permanece como está.
+ Apenas o compositor ganha 8 px extras de cada lado no desktop.
+*/
+.composer {
+ width: 100% !important;
+ max-width: calc(var(--chat-width) + 16px) !important;
+}
+
+/* Os anexos acompanham a nova largura da barra */
+.attachments {
+ width: 100% !important;
+ max-width: calc(var(--chat-width) + 16px) !important;
+}
+
+/*
+ No mobile, a área das mensagens mantém 12 px nas laterais.
+ A barra passa a usar 6 px, ficando 6 px mais larga de cada lado.
+*/
+@media (max-width: 768px) {
+ .composer-wrap,
+ body.chat-empty .composer-wrap {
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+ }
+
+ .composer,
+ .attachments {
+  width: 100% !important;
+  max-width: none !important;
+ }
+}
+
+
+/* BARRA INFERIOR UM POUCO MAIS LARGA */
+.composer,
+.attachments {
+ width: 100% !important;
+ max-width: calc(var(--chat-width) + 24px) !important;
+}
+
+@media (max-width: 768px) {
+ .composer-wrap,
+ body.chat-empty .composer-wrap {
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+ }
+
+ .composer,
+ .attachments {
+  width: 100% !important;
+  max-width: none !important;
+ }
+}
+
+
+/* AJUSTE FINO DA BORDA ESQUERDA DA BARRA INFERIOR */
+
+/*
+ Reduz 4 px da largura total e desloca 2 px para a direita.
+ Com a centralização automática, a borda esquerda recua 4 px,
+ enquanto a borda direita permanece praticamente no mesmo lugar.
+*/
+.composer,
+.attachments {
+ width: calc(100% - 4px) !important;
+ max-width: calc(var(--chat-width) + 20px) !important;
+ position: relative !important;
+ left: 2px !important;
+}
+
+@media (max-width: 768px) {
+ .composer,
+ .attachments {
+  width: calc(100% - 4px) !important;
+  max-width: none !important;
+  left: 2px !important;
+ }
+}
+
 </style>
 </head>
 <body class="chat-empty">
