@@ -3771,7 +3771,135 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
         return `<div class="slide" id="slide-${index + 1}">${slideBody}</div>`;
       }).join('\n');
 
-      const pptHtml = `<!DOCTYPE html>\n<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:p="urn:schemas-microsoft-com:office:powerpoint" xmlns="http://www.w3.org/TR/REC-html40">\n<head>\n<meta charset="utf-8">\n<title>Aion</title>\n<style>\nbody { font-family: Calibri, Arial, sans-serif; background: #e2e8f0; margin: 0; padding: 20pt; }\n.slide { page-break-after: always; width: 10in; min-height: 5.625in; padding: 0.6in 0.8in; background: #ffffff; }\nh1 { font-size: 24pt; color: #1a365d; }\nul { font-size: 16pt; line-height: 1.6; color: #2d3748; }\nli { margin-bottom: 8pt; }\np { font-size: 14pt; line-height: 1.5; color: #4a5568; }\n</style>\n</head>\n<body>\n${slidesHtml}\n</body>\n</html>`;
+      const pptHtml = `<!DOCTYPE html>\n<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:p="urn:schemas-microsoft-com:office:powerpoint" xmlns="http://www.w3.org/TR/REC-html40">\n<head>\n<meta charset="utf-8">\n<title>Aion</title>\n<style>\nbody { font-family: Calibri, Arial, sans-serif; background: #e2e8f0; margin: 0; padding: 20pt; }\n.slide { page-break-after: always; width: 10in; min-height: 5.625in; padding: 0.6in 0.8in; background: #ffffff; }\nh1 { font-size: 24pt; color: #1a365d; }\nul { font-size: 16pt; line-height: 1.6; color: #2d3748; }\nli { margin-bottom: 8pt; }\np { font-size: 14pt; line-height: 1.5; color: #4a5568; }\n</style>\n
+<style id="aion-composer-fix">
+/* AION_COMPOSER_FIX_START */
+
+/*
+  Correção da barra inferior:
+  1. Remove deslocamentos laterais antigos.
+  2. Mantém margens simétricas.
+  3. Centraliza todos os controles.
+  4. Reduz levemente a altura do compositor.
+*/
+
+.composer-wrap,
+body.chat-empty .composer-wrap {
+    width: 100% !important;
+    padding-top: 4px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.composer,
+.attachments {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+
+    width: 100% !important;
+    max-width: var(--chat-width) !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
+}
+
+.composer {
+    min-height: 50px !important;
+    padding: 5px 9px !important;
+    gap: 6px !important;
+
+    display: flex !important;
+    align-items: center !important;
+
+    border-width: 1px !important;
+    border-radius: 12px !important;
+}
+
+.composer textarea {
+    min-height: 36px !important;
+    padding: 6px !important;
+    margin: 0 !important;
+    line-height: 1.45 !important;
+}
+
+.composer #attachButton,
+.composer #modelPillBtn,
+.composer #micButton,
+.composer .send-button {
+    align-self: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.composer .model-picker-wrapper {
+    align-self: center !important;
+    height: 34px !important;
+    margin: 0 !important;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .composer-wrap,
+    body.chat-empty .composer-wrap {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        padding-top: 3px !important;
+        padding-bottom: calc(
+            9px + env(safe-area-inset-bottom, 0px)
+        ) !important;
+    }
+
+    .composer,
+    .attachments {
+        left: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .composer {
+        min-height: 48px !important;
+        padding: 5px 8px !important;
+        gap: 4px !important;
+        border-radius: 12px !important;
+    }
+
+    .composer textarea {
+        min-height: 34px !important;
+        padding: 5px 4px !important;
+        line-height: 1.45 !important;
+    }
+
+    .composer #attachButton,
+    .composer #modelPillBtn,
+    .composer #micButton,
+    .composer .send-button {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        max-width: 32px !important;
+        max-height: 32px !important;
+        flex: 0 0 32px !important;
+    }
+
+    .composer .model-picker-wrapper {
+        height: 32px !important;
+    }
+}
+
+/* AION_COMPOSER_FIX_END */
+</style>
+
+</head>\n<body>\n${slidesHtml}\n</body>\n</html>`;
 
       const blob = new Blob(['\ufeff', pptHtml], { type: 'application/vnd.ms-powerpoint;charset=utf-8' });
       const fname = filename.endsWith('.ppt') ? filename : `${filename.replace(/\.pptx?$/i, '')}.ppt`;
