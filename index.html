@@ -357,6 +357,13 @@
     .message-content { max-width: 100%; display: flex; flex-direction: column; gap: 4px; }
     .message-row.user .message-content { align-items: flex-end; max-width: min(720px, 88%); }
     .message-row.assistant .message-content { width: 100%; }
+    /* Status sempre alinhado à esquerda com o conteúdo da resposta, em todos os estados. */
+    .message-row.assistant .message-row-inner > .system-status {
+      width: 100%;
+      align-self: flex-start;
+      text-align: left;
+      margin-left: 0;
+    }
 
     /* Bubbles */
     .message-bubble {
@@ -4379,9 +4386,16 @@ body.chat-empty .composer-wrap {
       document.body.dataset.systemState = state;
       const status = getSystemStatusElement();
       const isWelcomeMode = document.body.classList.contains('chat-empty') || Boolean(document.getElementById('welcome'));
-      if (!isWelcomeMode && !busy && (state === 'listening' || state === 'transcribing')) {
-        const host = document.getElementById('messages');
-        if (host) host.append(status);
+      if (!isWelcomeMode) {
+        // Mantém o status dentro da mesma coluna da resposta da IA
+        // em TODOS os estados (Pensando, Buscando na web, Escrevendo,
+        // Ouvindo e Transcrevendo), evitando qualquer desalinhamento.
+        const lastAssistantInner = document.querySelector(
+          '#messages .message-row.assistant:last-of-type .message-row-inner'
+        );
+        if (lastAssistantInner) {
+          lastAssistantInner.append(status);
+        }
       }
       status.dataset.state = state;
       status.textContent = labels[state] || '';
