@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -76,7 +76,7 @@
       background: #151515 !important;
       color: var(--text);
       font-family: var(--font-sans);
-      font-size: 18.2px;
+      font-size: 16px;
       line-height: 1.65;
       overflow: hidden;
       border: none !important;
@@ -167,7 +167,7 @@
       position: relative;
       margin: 0;
       font-family: var(--font-display);
-      font-size: 23px;
+      font-size: 20.2px;
       font-weight: 600;
       line-height: 1.05;
       letter-spacing: -0.2px;
@@ -181,7 +181,7 @@
       display: block;
       align-self: flex-start;
       color: var(--muted);
-      font-size: 14.5px;
+      font-size: 12.8px;
       font-weight: 500;
       line-height: 1.35;
       letter-spacing: 0.05px;
@@ -220,7 +220,7 @@
       justify-content: center;
       cursor: pointer;
       color: var(--muted);
-      font-size: 17.5px;
+      font-size: 15.4px;
       transition: background .2s, border-color .2s, color .2s;
     }
     .icon-button:hover {
@@ -291,7 +291,7 @@
 
     .welcome h2 {
       font-family: var(--font-display);
-      font-size: clamp(33px, 4.6vw, 49px);
+      font-size: clamp(29px, 4.6vw, 43.1px);
       font-weight: 500;
       line-height: 1.22;
       color: var(--text);
@@ -368,7 +368,7 @@
 
     /* Bubbles */
     .message-bubble {
-      font-size: 18.2px;
+      font-size: 16px;
       line-height: 1.7;
       word-break: break-word;
     }
@@ -419,14 +419,14 @@
       margin: 20px 0 10px;
       line-height: 1.3;
     }
-    .message-bubble h1 { font-size: 25.3px; }
-    .message-bubble h2 { font-size: 22px; }
-    .message-bubble h3 { font-size: 19.3px; }
+    .message-bubble h1 { font-size: 22.3px; }
+    .message-bubble h2 { font-size: 19.4px; }
+    .message-bubble h3 { font-size: 17px; }
     .message-bubble ul, .message-bubble ol { margin: 8px 0 14px 22px; }
     .message-bubble li { margin-bottom: 5px; }
     .message-bubble code {
       font-family: var(--font-mono);
-      font-size: 15.6px;
+      font-size: 13.7px;
       background: var(--accent-glow);
       color: var(--accent-light);
       padding: 2px 6px;
@@ -435,7 +435,7 @@
     }
     .message-bubble pre {
       font-family: var(--font-mono);
-      font-size: 15.6px;
+      font-size: 13.7px;
       background: #111111;
       border: 1px solid var(--line-strong);
       border-radius: 12px;
@@ -461,7 +461,7 @@
       width: 100%;
       border-collapse: collapse;
       margin: 10px 0;
-      font-size: 15.6px;
+      font-size: 13.7px;
     }
     .message-bubble th, .message-bubble td {
       border: 1px solid var(--line-strong);
@@ -485,14 +485,14 @@
       padding: 7px 12px;
       background: rgba(255, 255, 255, 0.035);
       border-top: 1px solid var(--line);
-      font-size: 13.3px;
+      font-size: 11.7px;
       color: var(--muted);
       gap: 8px;
     }
     .code-lang-tag {
       font-family: var(--font-mono);
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 0.05em;
       color: var(--accent-light);
       font-weight: 600;
@@ -510,7 +510,7 @@
       border: 1px solid var(--line);
       border-radius: 6px;
       padding: 3px 8px;
-      font-size: 13px;
+      font-size: 11.4px;
       color: var(--text-soft);
       cursor: pointer;
       transition: all 0.15s ease;
@@ -549,7 +549,7 @@
       padding: 6px 12px;
       background: rgba(255, 255, 255, 0.035);
       border-bottom: 1px solid var(--line);
-      font-size: 13.3px;
+      font-size: 11.7px;
       color: var(--muted);
       gap: 8px;
     }
@@ -601,7 +601,7 @@
       border-radius: 12px;
       padding: 6px 10px;
       margin-bottom: 8px;
-      font-size: 13.8px;
+      font-size: 12.1px;
       max-width: 100%;
     }
     .attach-inline img { width: 34px; height: 34px; object-fit: cover; border-radius: 6px; }
@@ -612,7 +612,7 @@
       margin-top: 14px;
       padding-top: 12px;
       border-top: 1px solid var(--line);
-      font-size: 14.3px;
+      font-size: 12.6px;
     }
     .search-sources-title { font-weight: 600; color: var(--muted); margin-bottom: 6px; }
     .search-sources-list { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -626,7 +626,7 @@
       border-radius: 12px;
       color: var(--text);
       text-decoration: none;
-      font-size: 13.8px;
+      font-size: 12.1px;
       transition: border-color .2s, background .2s;
     }
     .search-sources-list a:hover { border-color: var(--accent); background: var(--bg-panel-hover); }
@@ -640,11 +640,11 @@
       align-items: center;
     }
     
-    .openai-panel-link {
+    .provider-panel-link {
       display: inline-flex;
       align-items: center;
       gap: 3px;
-      font-size: 12.5px;
+      font-size: 11px;
       text-decoration: none;
       font-weight: 500;
       padding: 3px 8px;
@@ -656,18 +656,18 @@
       box-sizing: border-box;
       transition: all 0.2s ease;
     }
-    .openai-panel-link.connected {
+    .provider-panel-link.connected {
       color: var(--accent, #7390e6);
       background: rgba(115, 144, 230, 0.12);
       border: 1px solid rgba(115, 144, 230, 0.25);
       cursor: pointer;
       pointer-events: auto;
     }
-    .openai-panel-link.connected:hover {
+    .provider-panel-link.connected:hover {
       background: rgba(115, 144, 230, 0.22);
       border-color: var(--accent, #7390e6);
     }
-    .openai-panel-link.disconnected {
+    .provider-panel-link.disconnected {
       color: var(--faint, #707070);
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--line, #2e2e2e);
@@ -733,7 +733,7 @@
       justify-content: space-between;
       padding: 10px 14px;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 12.3px;
       color: var(--text-soft, #d8d8d8);
       cursor: pointer;
       background: transparent;
@@ -761,7 +761,7 @@
       gap: 9px;
       padding: 7px 10px;
       border-radius: 8px;
-      font-size: 13.5px;
+      font-size: 11.9px;
       color: var(--text-soft, #d8d8d8);
       cursor: pointer;
       transition: background 0.15s ease;
@@ -809,7 +809,7 @@
       border: 1px solid var(--line-strong);
       border-radius: 12px;
       padding: 6px 10px;
-      font-size: 14.3px;
+      font-size: 12.6px;
       color: var(--text);
       box-shadow: none;
     }
@@ -820,7 +820,7 @@
       background: transparent;
       color: var(--muted);
       cursor: pointer;
-      font-size: 15.6px;
+      font-size: 13.7px;
       padding: 0 2px;
     }
     .chip-remove:hover { color: var(--danger); }
@@ -872,7 +872,7 @@
       background: transparent !important;
       color: var(--text) !important;
       font-family: var(--font-sans);
-      font-size: 17.5px;
+      font-size: 15.4px;
       line-height: 1.5;
       padding: 10px 8px;
       min-height: 42px;
@@ -915,7 +915,7 @@
     }
     @keyframes pulse-mic { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-    .attach-button { font-size: 26.5px; font-weight: 300; line-height: 1; }
+    .attach-button { font-size: 23.3px; font-weight: 300; line-height: 1; }
     .attach-button:hover { color: var(--accent-light); }
 
     /* Botão de Enviar com SVG */
@@ -991,7 +991,7 @@
     }
     .modal-header h2 {
       font-family: var(--font-serif);
-      font-size: 24.4px;
+      font-size: 21.5px;
       font-weight: 600;
       color: var(--text);
     }
@@ -1009,7 +1009,7 @@
       border-radius: 12px;
       color: var(--text);
       cursor: pointer;
-      font-size: 14px;
+      font-size: 12.3px;
       font-weight: 550;
       box-sizing: border-box;
       transition: background .2s, border-color .2s, color .2s;
@@ -1030,7 +1030,7 @@
       color: var(--text);
       padding: 0 14px;
       outline: none;
-      font-size: 13.8px;
+      font-size: 12.1px;
       font-family: var(--font-sans);
       box-sizing: border-box;
     }
@@ -1074,14 +1074,14 @@
     }
     .history-item-info { min-width: 0; flex: 1; }
     .history-item-title {
-      font-size: 15.6px;
+      font-size: 13.7px;
       font-weight: 500;
       color: var(--text);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .history-item-date { font-size: 13.3px; color: var(--muted); margin-top: 2px; }
+    .history-item-date { font-size: 11.7px; color: var(--muted); margin-top: 2px; }
     .history-item-delete {
       border: none;
       background: transparent;
@@ -1105,12 +1105,12 @@
       padding: 30px 10px;
       text-align: center;
       color: var(--muted);
-      font-size: 15.6px;
+      font-size: 13.7px;
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
-    .history-empty small { color: var(--faint); font-size: 13.3px; }
+    .history-empty small { color: var(--faint); font-size: 11.7px; }
 
     .history-footer {
       padding-top: 10px;
@@ -1123,7 +1123,7 @@
       color: var(--faint);
       padding: 10px;
       border-radius: 12px;
-      font-size: 14.7px;
+      font-size: 12.9px;
       cursor: pointer;
       text-align: center;
       transition: color .2s, background .2s;
@@ -1193,7 +1193,7 @@
       padding: 8px 4px;
       background: transparent;
       color: var(--muted);
-      font-size: 14.5px;
+      font-size: 12.8px;
       font-weight: 600;
       cursor: pointer;
       display: flex;
@@ -1229,7 +1229,7 @@
       display: block;
       width: 100%;
       color: var(--text-soft);
-      font-size: 16px;
+      font-size: 14.1px;
       font-weight: 550;
       margin: 16px 0 0;
     }
@@ -1249,7 +1249,7 @@
       color: var(--text);
       padding: 12px 14px;
       outline: none;
-      font-size: 16px;
+      font-size: 14.1px;
       font-family: var(--font-sans);
     }
     .settings-card select {
@@ -1287,11 +1287,11 @@
 
     /* DeepSeek Balance Box */
     .balance-body {
-      font-size: 14.7px;
+      font-size: 12.9px;
     }
     .balance-placeholder {
       color: var(--muted);
-      font-size: 14.3px;
+      font-size: 12.6px;
       display: block;
       padding: 2px 0;
     }
@@ -1300,7 +1300,7 @@
       align-items: center;
       gap: 8px;
       color: var(--muted);
-      font-size: 14.3px;
+      font-size: 12.6px;
       padding: 3px 0;
     }
     .balance-spinner {
@@ -1319,7 +1319,7 @@
       align-items: center;
       gap: 8px;
       color: var(--danger);
-      font-size: 14.3px;
+      font-size: 12.6px;
       padding: 3px 0;
     }
     .balance-status-row {
@@ -1327,14 +1327,14 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 9px;
-      font-size: 13.8px;
+      font-size: 12.1px;
       color: var(--muted);
     }
     .balance-status {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 13px;
+      font-size: 11.4px;
       font-weight: 550;
       padding: 3px 10px;
       border-radius: 8px;
@@ -1384,7 +1384,7 @@
       margin-bottom: 0;
     }
     .balance-item-currency {
-      font-size: 13.3px;
+      font-size: 11.7px;
       font-weight: 700;
       color: var(--text-soft);
       letter-spacing: 0.5px;
@@ -1405,7 +1405,7 @@
       border-radius: 12px;
       padding: 0 18px;
       height: 38px;
-      font-size: 14px;
+      font-size: 12.3px;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
@@ -1425,7 +1425,7 @@
       border-radius: 12px;
       padding: 0 14px;
       height: 38px;
-      font-size: 14px;
+      font-size: 12.3px;
       font-weight: 550;
       display: inline-flex;
       align-items: center;
@@ -1442,7 +1442,7 @@
       border-radius: 12px;
       padding: 0 16px;
       height: 38px;
-      font-size: 14px;
+      font-size: 12.3px;
       font-weight: 550;
       display: inline-flex;
       align-items: center;
@@ -1461,8 +1461,8 @@
       margin: 20px 0 0;
       padding: 6px 0;
     }
-    .setting-row strong { font-size: 16px; font-weight: 550; color: var(--text-soft); }
-    .setting-row small { display: block; color: var(--muted); font-size: 14.3px; margin-top: 3px; }
+    .setting-row strong { font-size: 14.1px; font-weight: 550; color: var(--text-soft); }
+    .setting-row small { display: block; color: var(--muted); font-size: 12.6px; margin-top: 3px; }
 
     /* Toast Notification (No Topo da Página) */
     .toast {
@@ -1475,7 +1475,7 @@
       color: var(--text);
       padding: 11px 20px;
       border-radius: 12px;
-      font-size: 15.6px;
+      font-size: 13.7px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.5);
       opacity: 0;
       pointer-events: none;
@@ -1488,26 +1488,26 @@
 
     /* Escala padrão compacta no desktop, sem ampliar a interface */
     @media (min-width: 769px) {
-      html, body { font-size: 16px; }
+      html, body { font-size: 14.1px; }
       .topbar { height: 50px; min-height: 50px; padding: 0 22px; }
-      .topbar h1 { font-size: 20px; }
-      .icon-button { width: 34px; height: 34px; font-size: 16px; border-radius: 10px; }
+      .topbar h1 { font-size: 17.6px; }
+      .icon-button { width: 34px; height: 34px; font-size: 14.1px; border-radius: 10px; }
 
       .messages-scroll-wrap { padding-top: 14px; padding-bottom: 16px; }
       .messages { gap: 16px; }
-      .message-bubble { font-size: 16px; line-height: 1.6; }
-      .message-bubble h1 { font-size: 22px; }
-      .message-bubble h2 { font-size: 19px; }
-      .message-bubble h3 { font-size: 17px; }
+      .message-bubble { font-size: 14.1px; line-height: 1.6; }
+      .message-bubble h1 { font-size: 19.4px; }
+      .message-bubble h2 { font-size: 16.7px; }
+      .message-bubble h3 { font-size: 15px; }
       .message-bubble pre,
       .message-bubble code,
-      .message-bubble table { font-size: 14px; }
+      .message-bubble table { font-size: 12.3px; }
       .welcome { padding: 34px 18px; }
       .welcome-container { gap: 18px; }
-      .welcome h2 { font-size: clamp(30px, 4vw, 43px); }
+      .welcome h2 { font-size: clamp(26.4px, 4vw, 37.8px); }
 
       .composer { min-height: 52px; padding: 5px 9px; }
-      .composer textarea { font-size: 16px; min-height: 38px; padding: 8px 6px; }
+      .composer textarea { font-size: 14.1px; min-height: 38px; padding: 8px 6px; }
       .composer-action,
       .send-button {
         width: 34px;
@@ -1517,39 +1517,39 @@
         flex-basis: 34px;
         border-radius: 10px;
       }
-      .attach-button { font-size: 23px; }
+      .attach-button { font-size: 20.2px; }
 
       .settings-drawer { width: 372px; }
       .settings-card { padding: 16px 16px 14px; }
-      .modal-header h2 { font-size: 20px; }
+      .modal-header h2 { font-size: 17.6px; }
       .settings-tabs { margin: 12px 0 8px; padding: 3px; gap: 3px; }
-      .settings-tabs button { padding: 6px 3px; font-size: 12.8px; border-radius: 8px; }
+      .settings-tabs button { padding: 6px 3px; font-size: 11.3px; border-radius: 8px; }
       .settings-panes { padding-top: 10px; }
-      .settings-pane > label { font-size: 14px; margin-top: 12px; }
+      .settings-pane > label { font-size: 12.3px; margin-top: 12px; }
       .settings-card input,
       .settings-card select,
-      .settings-card textarea { margin-top: 6px; font-size: 14px; padding: 8px 11px; border-radius: 10px; }
-      .models-section-header > span { font-size: 14px !important; }
-      #modelFilterInput { font-size: 12.5px !important; padding: 7px 10px !important; }
-      .model-check-item { font-size: 13px; padding: 6px 8px; }
-      .new-chat-drawer-btn { height: 34px; font-size: 13px; }
+      .settings-card textarea { margin-top: 6px; font-size: 12.3px; padding: 8px 11px; border-radius: 10px; }
+      .models-section-header > span { font-size: 12.3px !important; }
+      #modelFilterInput { font-size: 11px !important; padding: 7px 10px !important; }
+      .model-check-item { font-size: 11.4px; padding: 6px 8px; }
+      .new-chat-drawer-btn { height: 34px; font-size: 11.4px; }
       .settings-divider { margin: 12px 0; }
       .setting-row { margin-top: 14px; gap: 10px; padding: 3px 0; }
-      .setting-row strong { font-size: 14px; }
-      .setting-row small { font-size: 12.5px; }
+      .setting-row strong { font-size: 12.3px; }
+      .setting-row small { font-size: 11px; }
       .modal-actions { margin-top: 12px; padding-top: 10px; gap: 8px; }
       .modal-actions button,
       .primary-button,
       .secondary-button,
-      .danger-button { height: 34px; font-size: 13px; border-radius: 10px; }
+      .danger-button { height: 34px; font-size: 11.4px; border-radius: 10px; }
     }
 
     /* Otimização Mobile Refinada (Fonte sutilmente menor e botões de backup sem cortes) */
     @media (max-width: 768px) {
-      html, body { font-size: 16px; }
+      html, body { font-size: 14.1px; }
       .topbar { padding: 0 16px; height: 60px; min-height: 60px; }
-      .topbar h1 { font-size: 19.8px; }
-      .icon-button { width: 36px; height: 36px; font-size: 16.5px; }
+      .topbar h1 { font-size: 17.4px; }
+      .icon-button { width: 36px; height: 36px; font-size: 14.5px; }
 
       .messages-scroll-wrap { padding: 12px 12px 14px; }
       body.chat-empty .messages-scroll-wrap {
@@ -1559,16 +1559,16 @@
         padding: 12px 12px 14px;
       }
       .messages { gap: 16px; }
-      .message-bubble { font-size: 16px; line-height: 1.6; }
+      .message-bubble { font-size: 14.1px; line-height: 1.6; }
       .message-bubble p { margin-bottom: 10px; }
       .message-bubble p:last-child { margin-bottom: 0; }
-      .message-bubble h1 { font-size: 21px; margin: 12px 0 6px; }
-      .message-bubble h2 { font-size: 18.8px; margin: 10px 0 4px; }
-      .message-bubble h3 { font-size: 16.5px; margin: 8px 0 4px; }
-      .message-bubble pre { font-size: 14.3px; padding: 10px; margin: 10px 0; }
-      .message-bubble code { font-size: 14.3px; }
-      .message-bubble table { font-size: 14.3px; }
-      .welcome h2 { font-size: 26.7px; }
+      .message-bubble h1 { font-size: 18.5px; margin: 12px 0 6px; }
+      .message-bubble h2 { font-size: 16.5px; margin: 10px 0 4px; }
+      .message-bubble h3 { font-size: 14.5px; margin: 8px 0 4px; }
+      .message-bubble pre { font-size: 12.6px; padding: 10px; margin: 10px 0; }
+      .message-bubble code { font-size: 12.6px; }
+      .message-bubble table { font-size: 12.6px; }
+      .welcome h2 { font-size: 23.5px; }
       .welcome { min-height: 32vh; padding: 22px 12px; }
       body.chat-empty .welcome { min-height: 32vh; padding: 22px 12px; }
 
@@ -1606,7 +1606,7 @@
         gap: 4px;
       }
       .composer textarea {
-        font-size: 16px;
+        font-size: 14.1px;
         line-height: 1.45;
         padding: 7px 4px;
         min-height: 34px;
@@ -1632,7 +1632,7 @@
       }
       .send-button svg { width: 15px; height: 15px; }
 
-      .history-item-title { font-size: 14.7px; }
+      .history-item-title { font-size: 12.9px; }
 
       .settings-drawer {
         top: 8px; right: 8px; bottom: auto; left: auto;
@@ -1656,15 +1656,15 @@
       .settings-tabs button {
         flex: 1 1 auto;
         padding: 9px 5px;
-        font-size: 13px;
+        font-size: 11.4px;
         font-weight: 600;
         letter-spacing: -0.1px;
         border-radius: 9px;
       }
-      .settings-pane > label { font-size: 14.7px; margin: 12px 0 0; }
+      .settings-pane > label { font-size: 12.9px; margin: 12px 0 0; }
       .settings-divider { margin: 14px 0; }
       .settings-card input, .settings-card select, .settings-card textarea {
-        font-size: 15px;
+        font-size: 13.2px;
         padding: 11px 13px;
         box-sizing: border-box;
       }
@@ -1681,8 +1681,8 @@
         margin: 12px 0 0;
         padding: 0;
       }
-      .setting-row strong { font-size: 15.6px; }
-      .setting-row small { font-size: 13.3px; }
+      .setting-row strong { font-size: 13.7px; }
+      .setting-row small { font-size: 11.7px; }
       .setting-row > div:last-child {
         width: 100%;
         display: flex;
@@ -1693,7 +1693,7 @@
       .setting-row #resetSettings {
         flex: 1;
         padding: 9px 12px;
-        font-size: 14.3px;
+        font-size: 12.6px;
         text-align: center;
         white-space: nowrap;
       }
@@ -1704,10 +1704,10 @@
       }
       .modal-actions button {
         padding: 9px 14px;
-        font-size: 14.7px;
+        font-size: 12.9px;
       }
 
-      .toast { top: 16px; padding: 9px 16px; font-size: 14.3px; }
+      .toast { top: 16px; padding: 9px 16px; font-size: 12.6px; }
     }
 
     /* Sistema unificado de espaçamento e respiro tipográfico */
@@ -1755,7 +1755,7 @@
       max-height: 42px !important;
       padding: 9px 8px;
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 12.3px;
       line-height: 1.25;
     }
     .settings-tabs button[data-settings-tab="preferences"] {
@@ -1777,7 +1777,7 @@
       min-height: var(--control-height);
       margin-top: var(--space-2);
       padding: var(--control-pad-y) var(--control-pad-x);
-      font-size: 15px;
+      font-size: 13.2px;
       line-height: 1.45;
     }
     .settings-card select {
@@ -1786,7 +1786,7 @@
     #modelFilterInput {
       min-height: var(--control-height);
       padding: var(--control-pad-y) var(--space-3) !important;
-      font-size: 14px !important;
+      font-size: 12.3px !important;
       line-height: 1.4 !important;
     }
     .models-checklist {
@@ -1797,7 +1797,7 @@
       min-height: 38px;
       gap: 9px;
       padding: var(--space-2) 10px;
-      font-size: 14px;
+      font-size: 12.3px;
       line-height: 1.35;
     }
 
@@ -1934,7 +1934,7 @@
         min-height: 42px !important;
         max-height: 42px !important;
         padding: 9px 3px;
-        font-size: 12.5px;
+        font-size: 11px;
         line-height: 1.25;
         white-space: nowrap;
       }
@@ -1985,7 +1985,7 @@
       .settings-tabs button {
         width: 100%;
         min-width: 0;
-        font-size: 12px;
+        font-size: 11px;
         padding: 9px 2px;
       }
     }
@@ -2000,11 +2000,11 @@
 
     html,
     body {
-      font-size: 19px;
+      font-size: 16.7px;
     }
 
     .message-bubble {
-      font-size: 19px;
+      font-size: 16.7px;
       color: var(--text-soft);
     }
 
@@ -2016,30 +2016,30 @@
     .setting-row strong,
     .models-section-header > span {
       color: var(--text);
-      font-size: 16.5px;
+      font-size: 14.5px;
     }
 
     .settings-card input,
     .settings-card select,
     .settings-card textarea {
-      font-size: 16.5px;
+      font-size: 14.5px;
     }
 
     .setting-row small,
     .balance-placeholder,
     .balance-loading,
     .balance-error {
-      font-size: 14.7px;
+      font-size: 12.9px;
       color: var(--muted);
     }
 
     .settings-tabs button {
-      font-size: 14.5px;
+      font-size: 12.8px;
     }
 
     .system-status {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 13.2px;
       line-height: 1.5;
     }
 
@@ -2051,42 +2051,42 @@
     .composer textarea {
       min-height: 40px;
       padding: 8px 7px;
-      font-size: 17px;
+      font-size: 15px;
       line-height: 1.5;
     }
 
     @media (max-width: 768px) {
       html,
       body {
-        font-size: 16.5px;
+        font-size: 14.5px;
       }
 
       .message-bubble {
-        font-size: 16.8px;
+        font-size: 14.8px;
       }
 
       .settings-pane > label,
       .setting-row strong,
       .models-section-header > span {
-        font-size: 15.3px;
+        font-size: 13.5px;
       }
 
       .settings-card input,
       .settings-card select,
       .settings-card textarea {
-        font-size: 15.5px;
+        font-size: 13.6px;
       }
 
       .setting-row small {
-        font-size: 13.8px;
+        font-size: 12.1px;
       }
 
       .settings-tabs button {
-        font-size: 12.8px;
+        font-size: 11.3px;
       }
 
       .system-status {
-        font-size: 14.5px;
+        font-size: 12.8px;
       }
 
       .composer {
@@ -2097,24 +2097,24 @@
       .composer textarea {
         min-height: 36px;
         padding: 7px 5px;
-        font-size: 16.5px;
+        font-size: 14.5px;
         line-height: 1.5;
       }
     }
 
     @media (max-width: 360px) {
       .settings-tabs button {
-        font-size: 12.2px;
+        font-size: 11px;
       }
     }
 
     /* Sistema tipográfico funcional unificado */
     :root {
-      --type-chat: 18.5px;
-      --type-functional: 16px;
-      --type-control: 14.8px;
-      --type-support: 13.8px;
-      --type-tabs: 14px;
+      --type-chat: 16.3px;
+      --type-functional: 14.1px;
+      --type-control: 13px;
+      --type-support: 12.1px;
+      --type-tabs: 12.3px;
       --menu-primary: #f8f8f8;
       --menu-secondary: #e8e8e8;
       --menu-muted: #bdbdbd;
@@ -2199,7 +2199,7 @@
       color: var(--menu-primary);
     }
 
-    .openai-panel-link,
+    .provider-panel-link,
     .balance-item a {
       color: var(--accent) !important;
       font-size: var(--type-support) !important;
@@ -2260,11 +2260,11 @@
 
     @media (max-width: 768px) {
       :root {
-        --type-chat: 16.4px;
-        --type-functional: 15.2px;
-        --type-control: 14.5px;
-        --type-support: 13.5px;
-        --type-tabs: 12.5px;
+        --type-chat: 14.4px;
+        --type-functional: 13.4px;
+        --type-control: 12.8px;
+        --type-support: 11.9px;
+        --type-tabs: 11px;
       }
 
       .settings-tabs {
@@ -2296,7 +2296,7 @@
 
     @media (max-width: 360px) {
       :root {
-        --type-tabs: 12px;
+        --type-tabs: 11px;
       }
     }
   
@@ -2309,11 +2309,11 @@
  --font-display: var(--font-sans);
  --font-serif: var(--font-sans);
 
- --type-chat: 18px;
- --type-functional: 16px;
- --type-control: 14.8px;
- --type-support: 13.8px;
- --type-tabs: 14px;
+ --type-chat: 15.8px;
+ --type-functional: 14.1px;
+ --type-control: 13px;
+ --type-support: 12.1px;
+ --type-tabs: 12.3px;
 }
 
 /* Tipografia mais usual e confortável */
@@ -2414,16 +2414,16 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
 @media (max-width: 768px) {
  :root {
-  --type-chat: 17.4px;
-  --type-functional: 16.2px;
-  --type-control: 15px;
-  --type-support: 14.2px;
-  --type-tabs: 13px;
+  --type-chat: 15.3px;
+  --type-functional: 14.3px;
+  --type-control: 13.2px;
+  --type-support: 12.5px;
+  --type-tabs: 11.4px;
  }
 
  html,
  body {
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.6;
  }
 
@@ -2433,7 +2433,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  }
 
  .topbar h1 {
-  font-size: 21px;
+  font-size: 18.5px;
   font-weight: 650;
  }
 
@@ -2455,15 +2455,15 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  }
 
  .message-bubble h1 {
-  font-size: 23px;
+  font-size: 20.2px;
  }
 
  .message-bubble h2 {
-  font-size: 20.5px;
+  font-size: 18px;
  }
 
  .message-bubble h3 {
-  font-size: 18.2px;
+  font-size: 16px;
  }
 
  .message-bubble ul,
@@ -2478,7 +2478,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  .message-row.user .message-bubble {
   padding: 9px 13px;
   border-radius: 13px;
-  font-size: 17.2px !important;
+  font-size: 15.1px !important;
   line-height: 1.56;
  }
 
@@ -2489,7 +2489,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  .message-bubble pre,
  .message-bubble code,
  .message-bubble table {
-  font-size: 14.8px;
+  font-size: 13px;
  }
 
  .message-bubble pre {
@@ -2497,12 +2497,12 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  }
 
  .welcome h2 {
-  font-size: 28px;
+  font-size: 24.6px;
   line-height: 1.25;
  }
 
  .system-status {
-  font-size: 15px;
+  font-size: 13.2px;
  }
 
  .composer {
@@ -2514,7 +2514,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  .composer textarea {
   min-height: 37px;
   padding: 7px 5px;
-  font-size: 17.2px !important;
+  font-size: 15.1px !important;
   line-height: 1.5;
  }
 
@@ -2527,7 +2527,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  .settings-card input,
  .settings-card select,
  .settings-card textarea {
-  font-size: 16px !important;
+  font-size: 14.1px !important;
  }
 
  .settings-tabs button {
@@ -2563,34 +2563,34 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  .attachment-chip,
  .search-sources,
  .search-sources-list a {
-  font-size: 14.5px;
+  font-size: 12.8px;
  }
 
  .toast {
-  font-size: 15px;
+  font-size: 13.2px;
  }
 
  .modal-header h2 {
-  font-size: 23px;
+  font-size: 20.2px;
  }
 
  .model-popover {
-  font-size: 15px;
+  font-size: 13.2px;
  }
 }
 
 @media (max-width: 360px) {
  :root {
-  --type-chat: 17.1px;
-  --type-functional: 15.8px;
-  --type-control: 14.7px;
-  --type-support: 14px;
-  --type-tabs: 12.5px;
+  --type-chat: 15px;
+  --type-functional: 13.9px;
+  --type-control: 12.9px;
+  --type-support: 12.3px;
+  --type-tabs: 11px;
  }
 
  html,
  body {
-  font-size: 16.8px;
+  font-size: 14.8px;
  }
 
  .message-row.user .message-content {
@@ -2598,15 +2598,15 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  }
 
  .message-row.user .message-bubble {
-  font-size: 17px !important;
+  font-size: 15px !important;
  }
 
  .composer textarea {
-  font-size: 17px !important;
+  font-size: 15px !important;
  }
 
  .welcome h2 {
-  font-size: 26.5px;
+  font-size: 23.3px;
  }
 }
 
@@ -2870,7 +2870,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
  overflow: hidden !important;
  text-overflow: ellipsis !important;
  white-space: nowrap !important;
- font-size: 14px !important;
+ font-size: 12.3px !important;
  line-height: 1 !important;
 }
 
@@ -2953,7 +2953,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
  .composer #modelPillBtn span {
   max-width: 105px !important;
-  font-size: 13.5px !important;
+  font-size: 11.9px !important;
  }
 }
 
@@ -3367,6 +3367,127 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
 /* AION_TEMA_SISTEMA_FIM */
 
+
+    /* AION_MODEL_LIST_COMPACT_V2
+       Espaçamento confortável na lista e saldo DeepSeek com suporte a valores negativos. */
+    /* AION_MODEL_LIST_COMPACT_V1
+       Lista de modelos mais compacta e saldo da DeepSeek no cabeçalho. */
+    .models-section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 0 0 8px;
+      min-width: 0;
+    }
+
+    .models-section-title {
+      font-size: 14.1px;
+      font-weight: 550;
+      color: var(--text-soft);
+      white-space: nowrap;
+      min-width: 0;
+    }
+
+    .models-checklist {
+      padding: 6px !important;
+      gap: 4px !important;
+    }
+
+    .models-checklist .model-check-item {
+      min-height: 36px !important;
+      height: 36px !important;
+      padding: 6px 10px !important;
+      gap: 9px !important;
+      margin: 0 !important;
+      line-height: 1.25 !important;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    .models-checklist .model-check-item input[type="checkbox"] {
+      width: 16px !important;
+      height: 16px !important;
+      flex: 0 0 16px;
+      margin: 0 !important;
+    }
+
+    .models-checklist .model-check-item span {
+      line-height: 1.25 !important;
+    }
+
+    #modelFilterInput {
+      margin-bottom: 10px !important;
+    }
+
+    .provider-balance-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 25px;
+      height: 25px;
+      padding: 3px 9px;
+      border-radius: 7px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+      font-size: 11.5px;
+      font-weight: 600;
+      line-height: 1.2;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    .provider-balance-link.connected {
+      color: var(--accent, #7390e6);
+      background: rgba(115, 144, 230, 0.12);
+      border: 1px solid rgba(115, 144, 230, 0.25);
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .provider-balance-link.connected:hover {
+      background: rgba(115, 144, 230, 0.22);
+      border-color: var(--accent, #7390e6);
+    }
+
+    .provider-balance-link.negative {
+      color: #e58a8a;
+      background: rgba(229, 138, 138, 0.12);
+      border-color: rgba(229, 138, 138, 0.3);
+    }
+
+    .provider-balance-link.negative:hover {
+      background: rgba(229, 138, 138, 0.2);
+      border-color: #e58a8a;
+    }
+
+    .provider-balance-link.disconnected {
+      color: var(--faint, #707070);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line, #2e2e2e);
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.55;
+    }
+
+    @media (max-width: 768px) {
+      .models-section-title {
+        font-size: var(--type-functional) !important;
+      }
+
+      .provider-balance-link {
+        font-size: var(--type-support) !important;
+        min-height: 24px;
+        height: 24px;
+        padding: 3px 8px;
+      }
+
+      .models-checklist .model-check-item {
+        min-height: 30px !important;
+        height: 30px !important;
+        padding: 3px 7px !important;
+      }
+    }
 </style>
 </head>
 <body class="chat-empty">
@@ -3471,9 +3592,9 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
         <!-- Aba 2: APIs -->
         <section class="settings-pane" data-settings-pane="general">
-          <label id="openaiKeyFieldLabel">
+          <label id="deepseekKeyFieldLabel">
             <span style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
-              <span>Chave da API ChatGPT</span>
+              <span>Chave da API DeepSeek</span>
             </span>
             <input id="apiKeySetting" type="password" placeholder="Cole a chave aqui." autocomplete="new-password">
           </label>
@@ -3492,14 +3613,14 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
           <!-- Gerenciador de Modelos Habilitados para a Barra Rápida (só aparece com chave de IA configurada) -->
           <div id="modelsSection" class="models-section">
-            <div class="models-section-header" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px; flex-wrap: nowrap;">
-              <span style="font-size: 16px; font-weight: 550; color: var(--text-soft); white-space: nowrap;">Modelos habilitados no Chat</span>
-              <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener noreferrer" id="openaiDashboardLink" title="Abrir painel oficial da OpenAI" class="openai-panel-link connected">
-                Painel
+            <div class="models-section-header">
+              <span class="models-section-title">Modelos habilitados no Chat</span>
+              <a href="https://platform.deepseek.com/top_up" target="_blank" rel="noopener noreferrer" id="deepseekDashboardLink" title="Abrir o saldo da API DeepSeek" class="provider-balance-link connected">
+                <span id="deepseekBalanceValue">Saldo: —</span>
               </a>
             </div>
 
-            <input id="modelFilterInput" type="text" placeholder="Filtrar modelos da lista..." autocomplete="off" style="margin-bottom: 8px; font-size: 13.5px; padding: 8px 12px;">
+            <input id="modelFilterInput" type="text" placeholder="Filtrar modelos da lista..." autocomplete="off" style="margin-bottom: 8px; font-size: 11.9px; padding: 8px 12px;">
             <div id="modelsChecklistContainer" class="models-checklist" style="max-height: 220px; overflow-y: auto; border: 1px solid var(--border-subtle, rgba(255,255,255,0.1)); border-radius: 10px; padding: 6px; background: var(--bg-surface-soft, rgba(0,0,0,0.2)); display: flex; flex-direction: column; gap: 4px;">
               <!-- Checkboxes dinâmicos gerados via JS -->
             </div>
@@ -3592,20 +3713,20 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
     }
 
     const PROVIDERS = {
-      openai: {
-        id: 'openai',
-        name: 'ChatGPT',
-        apiBase: 'https://api.openai.com/v1',
+      deepseek: {
+        id: 'deepseek',
+        name: 'DeepSeek',
+        apiBase: 'https://api.deepseek.com/',
         keyPlaceholder: 'Cole a chave aqui.',
-        keyLabel: 'Chave da API ChatGPT (OpenAI)',
-        defaultModel: '',
+        keyLabel: 'Chave da API DeepSeek',
+        defaultModel: 'deepseek-chat',
       }
     };
 
     const DEFAULT_SETTINGS = {
-      provider: 'openai',
+      provider: 'deepseek',
       apiKey: '',
-      apiBase: 'https://api.openai.com/v1',
+      apiBase: 'https://api.deepseek.com/',
       model: '',
       enabledModels: [],
       transcriptionKey: '',
@@ -3613,15 +3734,15 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
       userName: '',
       personality: '',
       providerKeys: {
-        openai: '',
+        deepseek: '',
       },
       providerModels: {
-        openai: '',
+        deepseek: '',
       },
     };
 
     function getActiveProviderId(settings) {
-      return 'openai';
+      return 'deepseek';
     }
 
     function getEnabledModels(settings) {
@@ -3634,7 +3755,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
     function getActiveProviderConfig(settings) {
       const id = getActiveProviderId(settings);
-      return PROVIDERS[id] || PROVIDERS.openai;
+      return PROVIDERS[id] || PROVIDERS.deepseek;
     }
 
     function getSavedKeyForProvider(settings, providerId) {
@@ -3667,7 +3788,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
 
     function getActiveModel(settings) {
       const id = getActiveProviderId(settings);
-      const prov = PROVIDERS[id] || PROVIDERS.openai;
+      const prov = PROVIDERS[id] || PROVIDERS.deepseek;
       const modelById = settings?.providerModels?.[id];
       if (typeof modelById === 'string' && modelById.trim()) return modelById.trim();
       const modelByBase = settings?.providerModels?.[prov.apiBase];
@@ -3716,25 +3837,22 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
           if (stored.apiKey && !settings.providerKeys.deepseek && !settings.providerKeys['https://api.deepseek.com']) {
             settings.providerKeys.deepseek = stored.apiKey;
           }
-        } else if (stored.apiBase && (stored.apiBase.includes('generativelanguage') || stored.apiBase.includes('gemini'))) {
-          if (!settings.provider) settings.provider = 'gemini';
-          if (stored.apiKey && !settings.providerKeys.gemini) {
-            settings.providerKeys.gemini = stored.apiKey;
-          }
-        } else if (stored.apiBase && stored.apiBase.includes('openai.com')) {
-          if (!settings.provider) settings.provider = 'openai';
-          if (stored.apiKey && !settings.providerKeys.openai && !settings.providerKeys['https://api.openai.com/v1']) {
-            settings.providerKeys.openai = stored.apiKey;
-          }
+        }
+
+        // Migração de uma chave antiga salva sob o Gemini (provedor descontinuado)
+        // para o campo genérico apiKey, para o usuário não perder a configuração
+        // e poder trocar pela chave da DeepSeek nas configurações.
+        if (stored.providerKeys && stored.providerKeys.gemini && !settings.providerKeys.deepseek) {
+          // Não migramos a chave em si (são provedores diferentes e incompatíveis),
+          // apenas garantimos que o campo antigo não quebre a leitura das configurações.
+          delete settings.providerKeys.gemini;
         }
 
         if (settings.transcriptionKey && !settings.providerKeys.groq) {
           settings.providerKeys.groq = settings.transcriptionKey;
         }
 
-        if (!PROVIDERS[settings.provider]) {
-          settings.provider = 'openai';
-        }
+        settings.provider = 'deepseek';
 
         return settings;
       } catch {
@@ -5514,11 +5632,9 @@ html[data-theme="light"] .primary-button {
       }
     }
 
-    // Chama o chat/completions do provedor ativo tentando primeiro com o parâmetro de
-    // tokens "moderno" (max_completion_tokens, exigido por modelos de raciocínio como
-    // GPT-5/o1/o3) e, se a API rejeitar, refaz com o parâmetro legado (max_tokens).
-    // Sem isso, o pre-flight de busca falhava em silêncio sempre que o modelo ativo
-    // fosse um modelo de raciocínio — a causa raiz de "a busca não dispara mesmo com chave".
+    // Chama o endpoint compatível com o formato OpenAI para o provedor ativo.
+    // O endpoint mantém o formato chat/completions, enquanto a infraestrutura do modelo
+    // é fornecida pela API da DeepSeek.
     async function callRouterLLM(endpoint, apiKey, modelName, messages, tokenBudget) {
       const basePayload = {
         model: modelName,
@@ -5526,7 +5642,6 @@ html[data-theme="light"] .primary-button {
         temperature: 0.1,
       };
       const attempts = [
-        { ...basePayload, max_completion_tokens: tokenBudget },
         { ...basePayload, max_tokens: tokenBudget },
       ];
       for (const payload of attempts) {
@@ -5549,12 +5664,8 @@ html[data-theme="light"] .primary-button {
           }
           const errBody = await res.json().catch(() => ({}));
           const msg = (errBody?.error?.message || '').toLowerCase();
-          // Se o erro não for especificamente sobre o parâmetro de tokens, não adianta retry.
-          if (!msg.includes('max_tokens') && !msg.includes('max_completion_tokens')) {
-            console.warn('Router LLM error:', res.status, errBody);
-            return '';
-          }
-          // senão, cai para a próxima tentativa (parâmetro alternativo)
+          console.warn('Router DeepSeek error:', res.status, errBody);
+          return '';
         } catch (err) {
           console.warn('Router LLM call failed:', err);
           return '';
@@ -5620,7 +5731,7 @@ html[data-theme="light"] .primary-button {
         return cached.intent;
       }
 
-      const endpoint = (settings.apiBase || prov.apiBase || 'https://api.openai.com/v1').replace(/\/$/, '') + '/chat/completions';
+      const endpoint = (settings.apiBase || prov.apiBase || 'https://api.deepseek.com/').replace(/\/$/, '') + '/chat/completions';
       const modelName = (getActiveModel(settings) || '').replace(/^models\//, '');
 
       // Contexto recente da conversa (só os últimos turnos, texto puro) para permitir
@@ -5886,7 +5997,7 @@ Regras:
         openSettings();
         return;
       }
-      const endpoint = (settings.apiBase || prov.apiBase || 'https://api.openai.com/v1').replace(/\/$/, '') + '/chat/completions';
+      const endpoint = (settings.apiBase || prov.apiBase || 'https://api.deepseek.com/').replace(/\/$/, '') + '/chat/completions';
       const reqHeaders = {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${currentApiKey}`
@@ -5895,7 +6006,7 @@ Regras:
       const reqBodyObj = {
         model: modelName,
         messages: requestMessages,
-        max_completion_tokens: 16384,
+        max_tokens: 16384,
         stream: true,
       };
 
@@ -6197,68 +6308,111 @@ Regras:
     let liveBalanceSeq = 0;
 
     function renderBalance(providerId, data, isLoading = false, errorMessage = null) {
-      const container = $('#balanceBody');
-      if (!container) return;
-      const prov = PROVIDERS[providerId] || PROVIDERS.openai;
+      const balanceLink = $('#deepseekDashboardLink');
+      const balanceValue = $('#deepseekBalanceValue');
+      if (!balanceValue) return;
 
       if (isLoading) {
-        container.innerHTML = '<div class="balance-loading"><span class="balance-spinner"></span><span>Verificando status da conta (' + escapeHtml(prov.name) + ')...</span></div>';
+        balanceValue.textContent = 'Saldo: verificando…';
         return;
       }
 
       if (errorMessage) {
-        container.innerHTML = '<div class="balance-error"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>' + escapeHtml(errorMessage) + '</span></div>';
+        console.warn('[Aion] Falha ao consultar saldo DeepSeek:', errorMessage);
+        balanceValue.textContent = 'Saldo: indisponível';
         return;
       }
 
-      if (!data) {
-        container.innerHTML = '<span class="balance-placeholder">Informe a chave da API para verificar o status.</span>';
+      if (!data || typeof data !== 'object') {
+        balanceValue.textContent = 'Saldo: —';
         return;
       }
 
-      if (providerId === 'deepseek') {
-        const infos = Array.isArray(data.balance_infos) ? data.balance_infos : [];
-        if (!infos.length) {
-          container.innerHTML = '<span class="balance-placeholder">Nenhuma informação de saldo retornada pela API.</span>';
-          return;
+      // A resposta oficial é { balance_infos: [{ currency, total_balance }] }.
+      // Algumas camadas/proxies podem envolver a resposta em "data".
+      const payload = data?.balance_infos ? data : (data?.data?.balance_infos ? data.data : data);
+      let infos = Array.isArray(payload?.balance_infos) ? payload.balance_infos : [];
+
+      // Aceita também balance_infos como objeto único.
+      if (!infos.length && payload?.balance_infos && typeof payload.balance_infos === 'object') {
+        infos = [payload.balance_infos];
+      }
+
+      // Fallback para uma resposta que traga total_balance diretamente.
+      let info = infos.find(item => String(item?.currency || '').trim().toUpperCase() === 'USD') || infos[0];
+      if (!info && payload?.total_balance !== undefined && payload?.total_balance !== null) {
+        info = {
+          currency: payload.currency || 'USD',
+          total_balance: payload.total_balance
+        };
+      }
+
+      // Último fallback: procura total_balance em qualquer nível do objeto.
+      if (!info) {
+        const queue = [data];
+        const seen = new Set();
+        while (queue.length && !info) {
+          const current = queue.shift();
+          if (!current || typeof current !== 'object' || seen.has(current)) continue;
+          seen.add(current);
+
+          if (current.total_balance !== undefined && current.total_balance !== null) {
+            info = {
+              currency: current.currency || 'USD',
+              total_balance: current.total_balance
+            };
+            break;
+          }
+
+          for (const value of Object.values(current)) {
+            if (value && typeof value === 'object') queue.push(value);
+          }
         }
-        const isAvailable = data.is_available ?? true;
-        const statusBadge = isAvailable
-          ? '<span class="balance-status active">Conectado</span>'
-          : '<span class="balance-status inactive">Desconectado</span>';
-
-        let htmlStr = '<div class="balance-status-row"><span>Status da conexão:</span>' + statusBadge + '</div><div class="balance-cards">';
-        infos.forEach(info => {
-          const currency = escapeHtml(info.currency || 'USD');
-          const symbol = currency === 'USD' ? String.fromCharCode(36) : (currency === 'CNY' ? '¥' : '');
-          const total = parseFloat(info.total_balance || 0).toFixed(2);
-          htmlStr += '<div class="balance-item"><div class="balance-item-top"><span class="balance-item-currency">Saldo e limites</span><a href="https://platform.deepseek.com/top_up" target="_blank" rel="noopener noreferrer" style="color:var(--accent, #7390e6); text-decoration:none; font-size:14.3px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">' + symbol + total + '</a></div></div>';
-        });
-        htmlStr += '</div>';
-        container.innerHTML = htmlStr;
-      } else {
-        container.innerHTML = '<div class="balance-status-row"><span>Status da conexão:</span><span class="balance-status active">Conectado</span></div><div class="balance-cards"><div class="balance-item"><div class="balance-item-top"><span class="balance-item-currency">Saldo e limites</span><a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener noreferrer" style="color:var(--accent, #7390e6); text-decoration:none; font-size:14.3px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">Painel oficial</a></div></div></div>';
       }
-    }
 
-    async function fetchOpenAIStatus(key) {
-      if (!key) return null;
-      const response = await fetch('https://api.openai.com/v1/models', {
-        headers: {
-          'Authorization': 'Bearer ' + key,
-        },
-      });
-      if (response.ok) {
-        return { status: 'Ativa', is_available: true };
+      if (!info) {
+        console.warn('[Aion] Resposta de saldo sem total_balance:', data);
+        balanceValue.textContent = 'Saldo: —';
+        return;
       }
-      const msg = await extractApiErrorMessage(response, 'Chave da API ChatGPT inválida ou não autorizada');
-      throw new Error(msg);
+
+      const currency = String(info?.currency || 'USD').trim().toUpperCase();
+      const symbol = currency === 'USD' ? '$' : (currency === 'CNY' ? '¥' : `${currency} `);
+      const rawBalance = info?.total_balance;
+      const numericBalance = typeof rawBalance === 'number'
+        ? rawBalance
+        : Number.parseFloat(String(rawBalance).replace(',', '.').trim());
+
+      if (!Number.isFinite(numericBalance)) {
+        console.warn('[Aion] total_balance não numérico:', rawBalance, data);
+        balanceValue.textContent = 'Saldo: —';
+        return;
+      }
+
+      // Ex.: -0.01 -> -$0.01 | 0 -> $0.00 | 12.50 -> $12.50
+      const formattedBalance = numericBalance < 0
+        ? `-${symbol}${Math.abs(numericBalance).toFixed(2)}`
+        : `${symbol}${numericBalance.toFixed(2)}`;
+
+      balanceValue.textContent = `Saldo: ${formattedBalance}`;
+
+      if (balanceLink) {
+        balanceLink.className = numericBalance < 0
+          ? 'provider-balance-link connected negative'
+          : 'provider-balance-link connected';
+        balanceLink.href = 'https://platform.deepseek.com/top_up';
+        balanceLink.removeAttribute('aria-disabled');
+        balanceLink.removeAttribute('tabindex');
+        balanceLink.title = numericBalance < 0
+          ? 'Saldo negativo na API DeepSeek. Clique para abrir saldo e recarga.'
+          : 'Abrir saldo e recarga da API DeepSeek';
+      }
     }
 
     async function loadBalanceForProvider(providerId, key) {
-      const container = $('#balanceBody');
-      if (!container) return;
-      const prov = PROVIDERS[providerId] || PROVIDERS.openai;
+      const balanceValue = $('#deepseekBalanceValue');
+      if (!balanceValue) return;
+      const prov = PROVIDERS[providerId] || PROVIDERS.deepseek;
 
       if (!key) {
         renderBalance(providerId, null);
@@ -6269,9 +6423,7 @@ Regras:
       renderBalance(providerId, null, true);
 
       try {
-        const data = providerId === 'deepseek'
-          ? await fetchDeepSeekBalance(key)
-          : await fetchOpenAIStatus(key);
+        const data = await fetchDeepSeekBalance(key);
         if (seq !== liveBalanceSeq) return;
         renderBalance(providerId, data);
       } catch (err) {
@@ -6289,7 +6441,7 @@ Regras:
       if (!key) return [];
       try {
         const headers = { 'Authorization': 'Bearer ' + key };
-        const response = await fetch('https://api.openai.com/v1/models', { headers });
+        const response = await fetch('https://api.deepseek.com/models', { headers });
         if (!response.ok) return [];
         const data = await response.json();
         const rawItems = Array.isArray(data.data) ? data.data : [];
@@ -6323,7 +6475,7 @@ Regras:
       }
 
       if (!matched.length) {
-        container.innerHTML = '<div style="padding: 12px; font-size: 13px; color: var(--muted); text-align: center;">Nenhum modelo encontrado.</div>';
+        container.innerHTML = '<div style="padding: 12px; font-size: 11.4px; color: var(--muted); text-align: center;">Nenhum modelo encontrado.</div>';
         return;
       }
 
@@ -6370,7 +6522,7 @@ Regras:
         return;
       }
 
-      container.innerHTML = '<div style="padding: 12px; font-size: 13px; color: var(--muted); text-align: center;"><span class="balance-spinner" style="display:inline-block; margin-right:6px;"></span>Buscando modelos da sua conta OpenAI...</div>';
+      container.innerHTML = '<div style="padding: 12px; font-size: 11.4px; color: var(--muted); text-align: center;"><span class="balance-spinner" style="display:inline-block; margin-right:6px;"></span>Buscando modelos disponíveis na DeepSeek...</div>';
 
       const fetched = await fetchAvailableModels(key);
       if (fetched && fetched.length) {
@@ -6405,9 +6557,9 @@ Regras:
       const active = getActiveModel(settings);
 
       if (!enabled.length) {
-        popoverList.innerHTML = `<div style="padding: 16px 12px; font-size: 13px; color: var(--menu-muted, #bdbdbd); text-align: center; line-height: 1.5;">
+        popoverList.innerHTML = `<div style="padding: 16px 12px; font-size: 11.4px; color: var(--menu-muted, #bdbdbd); text-align: center; line-height: 1.5;">
           <span>Nenhum modelo habilitado.</span><br>
-          <button type="button" id="popoverGoSettingsBtn" style="background: transparent; border: none; color: var(--accent, #7390e6); font-size: 13px; font-weight: 500; text-decoration: underline; cursor: pointer; margin-top: 8px; font-family: inherit;">
+          <button type="button" id="popoverGoSettingsBtn" style="background: transparent; border: none; color: var(--accent, #7390e6); font-size: 11.4px; font-weight: 500; text-decoration: underline; cursor: pointer; margin-top: 8px; font-family: inherit;">
             Habilitar nas Configurações
           </button>
         </div>`;
@@ -6435,7 +6587,7 @@ Regras:
             const cur = loadSettings();
             cur.model = chosen;
             cur.providerModels = cur.providerModels || {};
-            cur.providerModels.openai = chosen;
+            cur.providerModels.deepseek = chosen;
             localStorage.setItem(STORAGE_KEY, JSON.stringify(cur));
             updateActiveModelPill();
             renderModelPopover();
@@ -6467,7 +6619,7 @@ Regras:
     }
 
     function updateProviderUI(providerId, settings) {
-      const prov = PROVIDERS[providerId] || PROVIDERS.openai;
+      const prov = PROVIDERS[providerId] || PROVIDERS.deepseek;
       const current = settings || loadSettings();
       const savedKey = getSavedKeyForProvider(current, providerId);
       const preferredModel = (current?.providerModels?.[providerId]) || (current?.providerModels?.[prov.apiBase]) || (current?.provider === providerId ? current?.model : '') || '';
@@ -6492,24 +6644,24 @@ Regras:
           : prov.keyPlaceholder;
       }
 
-      loadModelsForProvider(providerId, savedKey, preferredModel);
+      loadModelsForChecklist(savedKey, current);
       loadBalanceForProvider(providerId, savedKey);
     }
 
     function updateKeyFieldsVisibility(settings) {
       const s = settings || loadSettings();
-      const hasOpenAI = !!(s.apiKey || s.providerKeys?.openai || '').trim();
+      const hasDeepSeek = !!(s.apiKey || s.providerKeys?.deepseek || '').trim();
       const hasGroq = !!(s.transcriptionKey || s.providerKeys?.groq || '').trim();
       const hasTavily = !!(s.webSearchKey || s.providerKeys?.tavily || '').trim();
 
-      const openaiLabel = $('#openaiKeyFieldLabel');
+      const deepseekLabel = $('#deepseekKeyFieldLabel');
       const groqLabel = $('#groqKeyFieldLabel');
       const tavilyLabel = $('#tavilyKeyFieldLabel');
       const keysDivider = $('#keysDivider');
-      const dashLink = $('#openaiDashboardLink');
+      const dashLink = $('#deepseekDashboardLink');
 
-      if (openaiLabel) {
-        openaiLabel.style.display = hasOpenAI ? 'none' : 'block';
+      if (deepseekLabel) {
+        deepseekLabel.style.display = hasDeepSeek ? 'none' : 'block';
       }
       if (groqLabel) {
         groqLabel.style.display = hasGroq ? 'none' : 'block';
@@ -6519,10 +6671,10 @@ Regras:
       }
       const modelsSection = $('#modelsSection');
       if (modelsSection) {
-        modelsSection.style.display = hasOpenAI ? 'block' : 'none';
+        modelsSection.style.display = hasDeepSeek ? 'block' : 'none';
       }
       if (keysDivider) {
-        keysDivider.style.display = (hasOpenAI && hasGroq && hasTavily) ? 'none' : 'block';
+        keysDivider.style.display = (hasDeepSeek && hasGroq && hasTavily) ? 'none' : 'block';
       }
 
       // Nome da aba muda de acordo com o que já está configurado:
@@ -6530,10 +6682,10 @@ Regras:
       // as três configuradas (só resta a lista de modelos) -> "Modelos".
       const apiTabBtn = document.querySelector('[data-settings-tab="general"]');
       if (apiTabBtn) {
-        if (hasOpenAI && hasGroq && hasTavily) {
+        if (hasDeepSeek && hasGroq && hasTavily) {
           apiTabBtn.textContent = 'Modelos';
           apiTabBtn.dataset.tabLabel = 'models';
-        } else if (hasOpenAI) {
+        } else if (hasDeepSeek) {
           apiTabBtn.textContent = 'APIs/Modelos';
           apiTabBtn.dataset.tabLabel = 'apis-models';
         } else {
@@ -6542,10 +6694,10 @@ Regras:
         }
       }
       if (dashLink) {
-        if (hasOpenAI) {
+        if (hasDeepSeek) {
           dashLink.style.display = 'inline-flex';
-          dashLink.className = 'openai-panel-link connected';
-          dashLink.href = 'https://platform.openai.com/settings/organization/billing/overview';
+          dashLink.className = 'provider-balance-link connected';
+          dashLink.href = 'https://platform.deepseek.com/';
           dashLink.removeAttribute('tabindex');
           dashLink.setAttribute('aria-disabled', 'false');
         } else {
@@ -6557,7 +6709,7 @@ Regras:
     function openSettings() {
       if ($('#modelFilterInput')) $('#modelFilterInput').value = '';
       const settings = loadSettings();
-      const savedKey = settings.apiKey || settings.providerKeys?.openai || '';
+      const savedKey = settings.apiKey || settings.providerKeys?.deepseek || '';
 
       if ($('#personalitySetting')) $('#personalitySetting').value = settings.personality || '';
       setTimeout(autoResizePersonality, 40);
@@ -6571,15 +6723,15 @@ Regras:
           : 'Cole a chave aqui.';
       }
 
-      const dashLink = $('#openaiDashboardLink');
+      const dashLink = $('#deepseekDashboardLink');
       if (dashLink) {
         if (savedKey) {
-          dashLink.className = 'openai-panel-link connected';
-          dashLink.href = 'https://platform.openai.com/settings/organization/billing/overview';
+          dashLink.className = 'provider-balance-link connected';
+          dashLink.href = 'https://platform.deepseek.com/';
           dashLink.removeAttribute('tabindex');
           dashLink.setAttribute('aria-disabled', 'false');
         } else {
-          dashLink.className = 'openai-panel-link disconnected';
+          dashLink.className = 'provider-balance-link disconnected';
           dashLink.removeAttribute('href');
           dashLink.setAttribute('tabindex', '-1');
           dashLink.setAttribute('aria-disabled', 'true');
@@ -6621,13 +6773,13 @@ Regras:
         const typedTransKey = ($('#transcriptionKeySetting')?.value || '').trim();
         const typedWebKey = ($('#webSearchKeySetting')?.value || '').trim();
 
-        const effectiveKey = typedKey || current.apiKey || current.providerKeys?.openai || '';
+        const effectiveKey = typedKey || current.apiKey || current.providerKeys?.deepseek || '';
         const effectiveGroqKey = typedTransKey || current.transcriptionKey || '';
         const effectiveWebKey = typedWebKey || current.webSearchKey || '';
 
         // Collect checked models
         const chosenModels = Array.from(checkedModelIds);
-        let activeModel = current.model || '';
+        let activeModel = current.model || getActiveModel(current) || '';
         if (chosenModels.length > 0) {
           if (!activeModel || !chosenModels.includes(activeModel)) {
             activeModel = chosenModels[0];
@@ -6637,9 +6789,9 @@ Regras:
         }
 
         const settings = {
-          provider: 'openai',
+          provider: 'deepseek',
           apiKey: effectiveKey,
-          apiBase: 'https://api.openai.com/v1',
+          apiBase: 'https://api.deepseek.com/',
           model: activeModel,
           enabledModels: chosenModels,
           transcriptionKey: effectiveGroqKey,
@@ -6647,10 +6799,10 @@ Regras:
           personality: ($('#personalitySetting')?.value || '').trim(),
           userName: ($('#userNameSetting')?.value || '').trim(),
           providerKeys: {
-            openai: effectiveKey,
+            deepseek: effectiveKey,
           },
           providerModels: {
-            openai: activeModel,
+            deepseek: activeModel,
           },
         };
 
@@ -6727,7 +6879,7 @@ Regras:
         version: 2,
         exportedAt: new Date().toISOString(),
         settings: {
-          provider: 'openai',
+          provider: 'deepseek',
           apiKey: getActiveApiKey(settings),
           apiBase: settings.apiBase || prov.apiBase,
           model: activeModel,
@@ -6739,7 +6891,7 @@ Regras:
           providerKeys: settings.providerKeys || {},
           providerModels: settings.providerModels || {},
         },
-        provider: 'openai',
+        provider: 'deepseek',
         apiKey: getActiveApiKey(settings),
         apiBase: settings.apiBase || prov.apiBase,
         model: activeModel,
@@ -6811,17 +6963,17 @@ Regras:
           }
 
           const updatedSettings = {
-            provider: 'openai',
+            provider: 'deepseek',
             apiKey: directKey,
-            apiBase: 'https://api.openai.com/v1',
+            apiBase: 'https://api.deepseek.com/',
             model: chosenModel,
             enabledModels: enabledList,
             transcriptionKey: transKey,
             webSearchKey: webKey,
             personality: s.personality !== undefined ? s.personality : (raw.personality !== undefined ? raw.personality : (current.personality || '')),
             userName: s.userName !== undefined ? s.userName : (raw.userName !== undefined ? raw.userName : (current.userName || '')),
-            providerKeys: { openai: directKey },
-            providerModels: { openai: chosenModel },
+            providerKeys: { deepseek: directKey },
+            providerModels: { deepseek: chosenModel },
           };
 
           localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedSettings));
@@ -7153,27 +7305,22 @@ Regras:
       $('#modelFilterInput')?.addEventListener('input', () => {
         renderFilteredModels();
       });
-      $('#providerSetting')?.addEventListener('change', e => {
-        const provId = e.target.value;
-        const current = loadSettings();
-        updateProviderUI(provId, current);
-      });
       $('#apiKeySetting')?.addEventListener('input', () => {
-        const provId = $('#providerSetting')?.value || 'openai';
+        const provId = 'deepseek';
         const typedKey = $('#apiKeySetting').value.trim();
         const settings = loadSettings();
         const savedKey = getSavedKeyForProvider(settings, provId);
         const effectiveKey = typedKey || savedKey;
         clearTimeout(liveModelTimer);
         liveModelTimer = setTimeout(() => {
-          loadModelsForProvider(provId, effectiveKey, $('#modelSetting')?.value || settings.model);
+          loadModelsForChecklist(effectiveKey, settings);
           loadBalanceForProvider(provId, effectiveKey);
         }, 400);
       });
       $('#refreshBalanceBtn')?.addEventListener('click', async () => {
         const btn = $('#refreshBalanceBtn');
         btn?.classList.add('rotating');
-        const provId = $('#providerSetting')?.value || 'openai';
+        const provId = 'deepseek';
         const settings = loadSettings();
         const typedKey = $('#apiKeySetting')?.value.trim();
         const savedKey = getSavedKeyForProvider(settings, provId);
@@ -7301,6 +7448,9 @@ Regras:
       try { applyTheme(); } catch (e) { console.error('applyTheme error:', e); }
       try { applyIdentity(); } catch (e) { console.error('applyIdentity error:', e); }
       try { updateKeyFieldsVisibility(); } catch (e) { console.error('updateKeyFieldsVisibility error:', e); }
+      // Carrega o saldo da DeepSeek imediatamente ao iniciar o Aion.
+      // Sem esta chamada, o indicador permanecia em 'Saldo: —' até alguma ação específica.
+      try { updateProviderUI('deepseek', loadSettings()); } catch (e) { console.error('updateProviderUI error:', e); }
       try { updateActiveModelPill(); } catch (e) { console.error('updateActiveModelPill error:', e); }
       try { renderModelPopover(); } catch (e) { console.error('renderModelPopover error:', e); }
       try { renderHistoryList(); } catch (e) { console.error('renderHistoryList error:', e); }
