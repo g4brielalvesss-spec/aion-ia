@@ -3579,7 +3579,41 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
     // O histórico completo continua salvo e visível no app; isso só limita o que é
     // reenviado à API, economizando token em conversas longas sem afetar a qualidade
     // da resposta (o que importa pra continuidade da conversa é o que foi dito recentemente).
+    // Limite máximo de histórico enviado à API. O limite real é adaptado por turno
+    // para economizar tokens sem perder contexto quando a pergunta depende da conversa anterior.
     const MAX_HISTORY_MESSAGES_FOR_API = 30;
+
+    function getAdaptiveHistoryLimit(text, options = {}) {
+      const t = String(text || '').toLowerCase().trim();
+      if (!t) return 8;
+
+      const continuityHints = /\b(essa|esse|isso|isto|aquilo|aquele|aquela|dele|dela|deles|delas|ele|ela|eles|elas|acima|anterior|antes|mesmo|mesma|tamb[eé]m|novamente|continua(?:r)?|continue|retome|retomar|como eu disse|como falei|que eu mandei|que enviei|com base nisso|com base no que|sobre isso|e o outro|e os outros|e esse|e essa|e aquele|e aquela|qual deles|qual delas)\b/i;
+      const complexityHints = /\b(compare|compar[eê]|analise|an[aá]lise|detalh|expanda|explique melhor|passo a passo|completo|completa|completamente|profundo|aprofund|refa[cç]a|reescreva|continue o c[oó]digo|continue o texto)\b/i;
+
+      if (continuityHints.test(t) || /\b(arquivo|documento|planilha|apresenta[cç][aã]o|makefile|word|excel|powerpoint|slides?)\b/i.test(t) && /\b(com base|a partir|usando|aproveite|continue|edite|altere|modifique)\b/i.test(t)) {
+        return MAX_HISTORY_MESSAGES_FOR_API;
+      }
+
+      if (complexityHints.test(t) || t.length > 280 || options.needsSearch) return 20;
+      if (options.hasAttachments) return 14;
+      if (t.length > 100) return 12;
+      return 8;
+    }
+
+    function getAdaptiveResponseTokenBudget(text, options = {}) {
+      const t = String(text || '').toLowerCase();
+      const fileFormat = options.fileFormat || '';
+      const hasAttachments = !!options.hasAttachments;
+      const needsSearch = !!options.needsSearch;
+      const longAnswer = /\b(detalhad[oa]|completo|completa|passo a passo|explique tudo|aprofund|exaustiv|minucios|lista completa|c[oó]digo completo)\b/i.test(t);
+      const complexTask = /\b(compare|comparar|analise|an[aá]lise|refatore|refatorar|reescreva|planeje|arquitet|implemente|desenvolva)\b/i.test(t) || t.length > 500;
+
+      if (fileFormat) return longAnswer || complexTask ? 12288 : 8192;
+      if (longAnswer || complexTask || (hasAttachments && t.length > 180)) return 8192;
+      if (needsSearch || t.length > 180) return 6144;
+      if (t.length <= 80) return 3072;
+      return 4096;
+    }
     // Caches em memória (duram só a sessão atual da aba) para evitar rechamar o roteador de
     // busca e o Tavily/Serper quando a mesma pergunta se repete em pouco tempo.
     const searchIntentCache = new Map();   // pergunta original -> decisão do roteador (evita chamada LLM)
@@ -5608,8 +5642,12 @@ Regras:
 
       // Histórico natural da conversa, limitado às últimas N mensagens para não gastar
       // token à toa em conversas longas (o histórico completo continua salvo no app).
-      const recentConversation = conversation.length > MAX_HISTORY_MESSAGES_FOR_API
-        ? conversation.slice(-MAX_HISTORY_MESSAGES_FOR_API)
+      const historyLimit = getAdaptiveHistoryLimit(text, {
+        needsSearch: !!searchContext,
+        hasAttachments: sentAttachments.length > 0,
+      });
+      const recentConversation = conversation.length > historyLimit
+        ? conversation.slice(-historyLimit)
         : conversation;
       const cleanHistory = [];
       let lastRole = '';
@@ -5653,10 +5691,16 @@ Regras:
         'Authorization': `Bearer ${currentApiKey}`
       };
 
+      const responseTokenBudget = getAdaptiveResponseTokenBudget(text, {
+        fileFormat: requestedFileFormat,
+        hasAttachments: sentAttachments.length > 0,
+        needsSearch: !!searchContext,
+      });
+
       const reqBodyObj = {
         model: modelName,
         messages: requestMessages,
-        max_tokens: 16384,
+        max_tokens: responseTokenBudget,
         stream: true,
       };
 
