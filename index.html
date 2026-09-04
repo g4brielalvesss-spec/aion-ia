@@ -447,16 +447,29 @@
       background: #0d0d0f;
       overflow: hidden;
     }
-    .code-block-footer {
+    .code-block-title,
+    .table-block-title {
+      padding: 7px 12px;
+      background: rgba(255, 255, 255, 0.035);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--accent-light);
+      font-weight: 600;
+    }
+    .code-block-footer,
+    .table-block-footer {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       padding: 7px 12px;
       background: rgba(255, 255, 255, 0.035);
       border-top: 1px solid var(--line);
       font-size: 11.7px;
       color: var(--muted);
-      gap: 8px;
+      gap: 5px;
     }
     .code-lang-tag {
       font-family: var(--font-mono);
@@ -469,7 +482,9 @@
     .code-actions-wrap {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 6px;
+      width: 100%;
     }
     .code-action-btn {
       display: inline-flex;
@@ -512,15 +527,8 @@
       overflow: hidden;
     }
     .table-block-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6px 12px;
-      background: rgba(255, 255, 255, 0.035);
-      border-bottom: 1px solid var(--line);
       font-size: 11.7px;
       color: var(--muted);
-      gap: 8px;
     }
     .table-scroll-container {
       overflow-x: auto;
@@ -3755,33 +3763,36 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
       const l = (lang || '').trim().toLowerCase();
       const map = {
         'html': 'html', 'htm': 'html', 'xml': 'xml', 'svg': 'svg',
-        'doc': 'doc', 'docx': 'doc', 'word': 'doc', 'documento': 'doc',
+        'doc': 'doc', 'docx': 'docx', 'word': 'docx', 'documento': 'docx',
         'excel': 'xlsx', 'xlsx': 'xlsx', 'xls': 'xlsx', 'csv': 'csv', 'tsv': 'tsv',
-        'ppt': 'ppt', 'pptx': 'ppt', 'powerpoint': 'ppt', 'slides': 'ppt', 'apresentacao': 'ppt',
+        'ppt': 'ppt', 'pptx': 'pptx', 'powerpoint': 'pptx', 'slides': 'pptx', 'apresentacao': 'pptx',
         'json': 'json', 'yaml': 'yaml', 'yml': 'yaml', 'toml': 'toml',
         'js': 'js', 'javascript': 'js', 'ts': 'ts', 'typescript': 'ts',
         'jsx': 'jsx', 'tsx': 'tsx', 'vue': 'vue', 'css': 'css', 'scss': 'scss',
         'python': 'py', 'py': 'py', 'sql': 'sql', 'bash': 'sh', 'sh': 'sh', 'shell': 'sh',
         'php': 'php', 'rb': 'rb', 'ruby': 'rb', 'java': 'java', 'c': 'c', 'cpp': 'cpp',
         'cs': 'cs', 'go': 'go', 'rs': 'rs', 'rust': 'rs', 'r': 'r', 'swift': 'swift',
-        'markdown': 'md', 'md': 'md', 'txt': 'txt', 'text': 'txt', 'pdf': 'pdf'
+        'markdown': 'md', 'md': 'md', 'mk': 'mk', 'mak': 'mk', 'makefile': 'mk', 'txt': 'txt', 'text': 'txt', 'pdf': 'pdf'
       };
-      return map[l] || (l && l.length <= 4 && /^[a-z0-9]+$/.test(l) ? l : 'txt');
+      return map[l] || (l && l.length <= 12 && /^[a-z0-9]+$/.test(l) ? l : 'txt');
     }
+
+    let renderRequestedFileFormat = '';
 
     function setupMarkedRenderer() {
       if (!window.marked) return;
       const renderer = {
         code(code, infostring) {
           const lang = (infostring || '').trim().toLowerCase();
-          const ext = getExtensionForLang(lang);
-          const langLabel = lang ? lang.toUpperCase() : 'ARQUIVO';
+          const ext = renderRequestedFileFormat || getExtensionForLang(lang);
+          const langLabel = ext ? ext.toUpperCase() : 'ARQUIVO';
           const codeStr = typeof code === 'object' ? (code.text || '') : String(code || '');
           const escaped = escapeHtml(codeStr);
-          return `<div class="code-block-wrapper" data-lang="${escapeHtml(lang || 'txt')}">
+          return `<div class="code-block-wrapper" data-lang="${escapeHtml(ext || 'txt')}">
+  <div class="code-block-title">${escapeHtml(langLabel)}</div>
   <pre><code class="language-${escapeHtml(lang)}">${escaped}</code></pre>
+
   <div class="code-block-footer">
-    <span class="code-lang-tag">${escapeHtml(langLabel)}</span>
     <div class="code-actions-wrap">
       <button type="button" class="code-action-btn download-btn" data-action="download-code" title="Baixar arquivo gerado">
         <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -3799,8 +3810,15 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
           const hStr = typeof header === 'object' ? (header.header || '') : String(header || '');
           const bStr = typeof body === 'object' ? (body.body || '') : String(body || '');
           return `<div class="table-block-wrapper">
-  <div class="table-block-header">
-    <span class="code-lang-tag">PLANILHA / TABELA</span>
+  <div class="table-block-title">PLANILHA / TABELA</div>
+  <div class="table-scroll-container">
+    <table>
+      <thead>${hStr}</thead>
+      <tbody>${bStr}</tbody>
+    </table>
+  </div>
+
+  <div class="table-block-footer">
     <div class="code-actions-wrap">
       <button type="button" class="code-action-btn download-btn" data-action="download-table-xlsx" title="Baixar como Planilha Excel (.xlsx)">
         <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -3810,12 +3828,6 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
         <span>CSV</span>
       </button>
     </div>
-  </div>
-  <div class="table-scroll-container">
-    <table>
-      <thead>${hStr}</thead>
-      <tbody>${bStr}</tbody>
-    </table>
   </div>
 </div>`;
         },
@@ -4055,7 +4067,7 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
       }
     }
 
-    function formatMessage(value) {
+    function formatMessage(value, requestedFormat = '') {
       let str = String(value ?? '');
       str = str.replace(/<think>[\s\S]*?(?:<\/think>|$)/gi, '');
       str = str.replace(/<thought>[\s\S]*?(?:<\/thought>|$)/gi, '');
@@ -4063,7 +4075,20 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
       str = str.trimStart();
 
       if (window.marked && window.DOMPurify) {
-        const rendered = window.marked.parse(str);
+        const previousFormat = renderRequestedFileFormat;
+        renderRequestedFileFormat = requestedFormat || '';
+        let rendered = window.marked.parse(str);
+        renderRequestedFileFormat = previousFormat;
+
+        // Quando o usuário especificou explicitamente um formato, ele tem prioridade
+        // sobre o identificador usado pelo modelo no fence (ex.: ```txt para um pedido .mk).
+        if (requestedFormat) {
+          const safeFormat = escapeHtml(requestedFormat);
+          rendered = rendered.replace(/(<div class=\"code-block-wrapper\"[^>]*data-lang=\")[^\"]*(\"[^>]*>)/g, `$1${safeFormat}$2`);
+          rendered = rendered.replace(/(<div class=\"code-block-title\">)[^<]*(<\/div>)/g, `$1${safeFormat.toUpperCase()}$2`);
+          rendered = rendered.replace(/(<span>Baixar \.)[^<]*(<\/span>)/g, `$1${safeFormat}$2`);
+        }
+
         return window.DOMPurify.sanitize(rendered, {
           ADD_TAGS: ['svg', 'path', 'rect', 'line', 'polyline', 'circle', 'button', 'img', 'details', 'summary', 'div', 'span', 'p', 'figure', 'figcaption'],
           ADD_ATTR: ['data-action', 'data-lang', 'data-code', 'target', 'rel', 'viewBox', 'width', 'height', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'rx', 'ry', 'x1', 'y1', 'x2', 'y2', 'points', 'd', 'src', 'alt', 'loading', 'download', 'open', 'class', 'style'],
@@ -4691,33 +4716,37 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
       return bubble;
     }
 
-    // Detecta se a mensagem do usuário provavelmente está pedindo um arquivo para
-    // download (Word, Excel, PPT, código, etc.). Usado para só incluir a instrução de
-    // formatação de arquivo no prompt de sistema quando ela é relevante — em vez de
-    // pagar esse token em toda mensagem, mesmo nas puramente conversacionais.
-    // Estratégia: extensão de arquivo mencionada já basta; senão, exige um verbo de ação
-    // (gerar/criar/exportar/baixar/etc.) perto de uma palavra de artefato (documento,
-    // planilha, apresentação, word, excel...) para evitar falso positivo tipo "crie uma
-    // rotina de exercícios" ou "isso me gera confiança".
-    const FILE_EXT_HINT = /\b(pdf|docx?|xlsx?|pptx?|csv)\b/i;
-    const FILE_ARTIFACT_WORD = /(arquivo|documento|planilha|apresenta[cç][aã]o|slides?|c[oó]digo|script|word|excel|powerpoint)/i;
-    const FILE_ACTION_WORD = /(ger[ae]|gerar|cri[ae]|criar|fa[cç]a|faz|fazer|export[ae]|exportar|baix[ae]|baixar|salv[ae]|salvar|mont[ae]|montar)/i;
+    // Ativa instruções de arquivo somente quando a intenção de gerar/baixar um
+    // arquivo for explícita. Pedidos apenas de explicação ou exemplos de código
+    // continuam como respostas normais, economizando tokens e evitando falsos positivos.
+    const FILE_EXT_HINT = /\.(mk|mak|md|markdown|txt|pdf|docx?|xlsx?|pptx?|csv|tsv|html?|css|js|json|xml|ya?ml|toml|sql|sh|py|rb|java|cpp|c|h|go|rs|swift|kt|php)\b/i;
+    const FILE_NAMED_FORMAT = /\b(makefile|word|excel|powerpoint|slides?)\b/i;
+    const FILE_REQUEST_WORD = /\b(arquivo|documento|planilha|apresenta[cç][aã]o|slides?|download|baixar|exportar|salvar)\b/i;
+    const FILE_ACTION_WORD = /\b(ger[ae]|gerar|cri[ae]|criar|fa[cç]a|faz|fazer|mont[ae]|montar|export[ae]|exportar|baix[ae]|baixar|salv[ae]|salvar)\b/i;
+    const FILE_ARTIFACT_WORD = /\b(arquivo|documento|planilha|apresenta[cç][aã]o|slides?|makefile|word|excel|powerpoint)\b/i;
 
     function wantsFileGeneration(text) {
       if (!text) return false;
-      const t = text.toLowerCase();
-      if (FILE_EXT_HINT.test(t)) return true;
-      const words = t.split(/\s+/);
-      for (let i = 0; i < words.length; i++) {
-        if (FILE_ACTION_WORD.test(words[i])) {
-          const from = Math.max(0, i - 4);
-          const to = Math.min(words.length - 1, i + 4);
-          for (let j = from; j <= to; j++) {
-            if (FILE_ARTIFACT_WORD.test(words[j])) return true;
-          }
-        }
+      const t = String(text).toLowerCase();
+      if (FILE_EXT_HINT.test(t) && (FILE_ACTION_WORD.test(t) || FILE_REQUEST_WORD.test(t))) return true;
+      if (FILE_NAMED_FORMAT.test(t) && (FILE_ACTION_WORD.test(t) || FILE_REQUEST_WORD.test(t))) return true;
+      return FILE_ACTION_WORD.test(t) && FILE_ARTIFACT_WORD.test(t);
+    }
+
+    function getRequestedFileFormat(text) {
+      if (!text) return '';
+      const t = String(text).toLowerCase();
+      const match = t.match(/\.(mk|mak|md|markdown|txt|pdf|docx?|xlsx?|pptx?|csv|tsv|html?|css|js|json|xml|ya?ml|toml|sql|sh|py|rb|java|cpp|c|h|go|rs|swift|kt|php)\b/i);
+      if (match) {
+        const raw = match[1].toLowerCase();
+        const aliases = { mak: 'mk', markdown: 'md' };
+        return aliases[raw] || raw;
       }
-      return false;
+      if (/\bmakefile\b/i.test(t)) return 'mk';
+      if (/\bword\b/i.test(t) && (FILE_ACTION_WORD.test(t) || FILE_REQUEST_WORD.test(t))) return 'docx';
+      if (/\bexcel\b/i.test(t) && (FILE_ACTION_WORD.test(t) || FILE_REQUEST_WORD.test(t))) return 'xlsx';
+      if (/\b(powerpoint|slides?)\b/i.test(t) && (FILE_ACTION_WORD.test(t) || FILE_REQUEST_WORD.test(t))) return 'pptx';
+      return '';
     }
 
     function buildSystemPrompt(settings, userText) {
@@ -4725,8 +4754,9 @@ body :is(pre, code, kbd, samp, .code-lang-tag) * {
       const userCall = settings.userName ? `\n- O usuário se chama "${settings.userName}".` : '';
       const dateStr = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'full' }).format(new Date());
 
+      const requestedFormat = getRequestedFileFormat(userText);
       const fileInstruction = wantsFileGeneration(userText)
-        ? '\n- Para gerar arquivos para download (Word, Excel, PPT, códigos, etc.), utilize blocos de código markdown com a extensão correspondente (```word, ```xlsx, ```pptx, ```txt, ```html, etc.).'
+        ? `\n- O usuário pediu um arquivo para download. Entregue somente uma breve frase opcional e o conteúdo completo do arquivo em um único bloco de código Markdown. Não diga que não consegue gerar o arquivo, não peça para o usuário copiar/colar e não ensine a salvar manualmente. Respeite exatamente o formato solicitado.${requestedFormat ? ` FORMATO OBRIGATÓRIO: .${requestedFormat}. Use \`\`\`${requestedFormat} como identificador do bloco e não troque por txt, md ou outra extensão.` : ''} Para pedidos explícitos de .mk, use .mk; para .txt use .txt; para .md use .md. Para Word, Excel e PowerPoint, preserve o formato solicitado. Não crie arquivo quando o usuário pediu apenas uma explicação ou um exemplo de código.`
         : '';
 
       return `Você é Aion, um assistente de IA pessoal inteligente em português do Brasil (pt-BR).
@@ -5529,6 +5559,7 @@ Regras:
       scrollToBottom(true);
       setSystemState('thinking');
 
+      const requestedFileFormat = getRequestedFileFormat(text);
       let systemContent = buildSystemPrompt(settings, text);
       lastSearchResults = [];
 
@@ -5696,7 +5727,7 @@ Regras:
 
         const updateBubble = () => {
           bubble.dataset.raw = displayedAnswer;
-          let html = formatMessage(displayedAnswer);
+          let html = formatMessage(displayedAnswer, requestedFileFormat);
           bubble.innerHTML = html;
           scrollToBottom();
         };
@@ -5835,9 +5866,9 @@ Regras:
           const sources = lastSearchResults.map(item =>
             `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a>`
           ).join('');
-          bubble.innerHTML = formatMessage(answer) + `<div class="search-sources"><div class="search-sources-title">Fontes consultadas:</div><div class="search-sources-list">${sources}</div></div>`;
+          bubble.innerHTML = formatMessage(answer, requestedFileFormat) + `<div class="search-sources"><div class="search-sources-title">Fontes consultadas:</div><div class="search-sources-list">${sources}</div></div>`;
         } else {
-          bubble.innerHTML = formatMessage(answer);
+          bubble.innerHTML = formatMessage(answer, requestedFileFormat);
         }
         bubble.dataset.raw = answer;
       } catch (error) {
@@ -5850,7 +5881,7 @@ Regras:
           const partial = (answer || displayedAnswer || pendingAnswer || '').trim();
           if (partial) {
             bubble.dataset.raw = partial;
-            bubble.innerHTML = formatMessage(partial);
+            bubble.innerHTML = formatMessage(partial, requestedFileFormat);
             conversation.push({ role: 'user', content: attachSearchMemoryToContent(userContent, searchMemoryNote), displayText: text, fileAttachments: sentAttachments });
             conversation.push({ role: 'assistant', content: partial });
             saveCurrentChat();
